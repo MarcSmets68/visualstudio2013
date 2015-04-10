@@ -45,6 +45,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="3.2.7.2.3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="3.2.7.2.4.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>

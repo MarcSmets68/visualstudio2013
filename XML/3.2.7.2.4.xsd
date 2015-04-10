@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="_x0033_"
+    targetNamespace="http://tempuri.org/3.xsd"
+    elementFormDefault="qualified"
+    xmlns="http://tempuri.org/3.xsd"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:simpleType name="ISBN10nummerType">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[0-9] {9} [a-zA-Z0-9]"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ISBN" type="ISBN10nummerType"/>
+</xs:schema>
+

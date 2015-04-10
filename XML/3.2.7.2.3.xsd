@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="_x0033_"
+    targetNamespace="http://tempuri.org/3.xsd"
+    elementFormDefault="qualified"
+    xmlns="http://tempuri.org/3.xsd"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:simpleType name="AlcoholPercentageType">
+      <xs:restriction base="xs:nonNegativeInteger">
+        <xs:minInclusive value="0"/>
+        <xs:maxInclusive value="16"/>
+      </xs:restriction>
+    </xs:simpleType>
+  <xs:element name="alcoholpercentage" type="AlcoholPercentageType"/>
+</xs:schema>
