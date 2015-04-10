@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!ELEMENT Boeken (boek*)>
+<!ELEMENT boek (titel, schrijver, uitgever, curriculums,onderwerpen)>
+<!ATTLIST boek
+  boeknr CDATA #REQUIRED
+  isbn CDATA #REQUIRED>
+<!ELEMENT titel (#PCDATA)>
+<!ELEMENT schrijver (#PCDATA)>
+<!ELEMENT uitgever (#PCDATA)>
+<!ELEMENT curriculums (curriculum+)>
+<!ELEMENT curriculum (Naam, Beroepencode)>
+<!ATTLIST curriculum 
+  nr CDATA #REQUIRED>
+<!ELEMENT Naam (#PCDATA)>
+<!ELEMENT Beroepencode (#PCDATA)>
+<!ELEMENT onderwerpen (onderwerp+)>
+<!ELEMENT onderwerp (#PCDATA)>
+<!ATTLIST onderwerp
+  nr CDATA #REQUIRED>
