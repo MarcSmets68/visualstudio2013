@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema targetNamespace="http://www.vdab.be/XML_IMPORT"
+xmlns="http://www.vdab.be/XML_IMPORT"
+xmlns:bk ="http://www.vdab.be/XML"
+xmlns:xs="http://www.w3.org/2001/XMLSchema"
+elementFormDefault="qualified">
+  <xs:import namespace="http://www.vdab.be/XML"
+  schemaLocation="file:///C:\KurtKreemers\CursusPF\XML\Voorbeeld3-92.xsd"/>
+  <xs:complexType name="bibliotheekType">
+    <xs:sequence>
+      <xs:element ref="bk:boek" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="bibliotheek" type="bibliotheekType"/>
+</xs:schema>

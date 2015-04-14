@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<library xmlns="http://www.vdab.be/XML"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:SchemaLocation="file:///C:\KurtKreemers\CursusPF\XML\Voorbeeld3-87.xsd">
+  <book book_id="405">
+    <title>Database Programming with C#</title>
+    <author>Thomsen</author>
+    <publisher>Apress</publisher>
+    <isbn_no>1590590104</isbn_no>
+  </book>
+  <book book_id="404">
+    <title>Teach Yourself C# Web Programming in 21 days</title>
+    <author>Philip Syme &amp;amp; Peter Aitken</author>
+    <publisher>Sams</publisher>
+    <isbn_no>0672322358</isbn_no>
+  </book>
+</library>

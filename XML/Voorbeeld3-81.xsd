@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:bib="http://www.vdab.be/XML"
+xmlns:xs="http://www.w3.org/2001/XMLSchema"
+targetNamespace="http://www.vdab.be/XML"
+elementFormDefault="qualified">
+  <xs:complexType name="boekType">
+    <xs:sequence>
+      <xs:element name="titel" type="xs:string"/>
+      <xs:element name="schrijver" type="xs:string"/>
+      <xs:element name="uitgever" type="xs:string"/>
+      <xs:element name="isbn_nr" type="xs:string"/>
+    </xs:sequence>
+    <xs:attribute name="boek_id" type="xs:positiveInteger"/>
+  </xs:complexType>
+  <xs:complexType name="klantType">
+    <xs:sequence>
+      <xs:element name="naam" type="xs:string"/>
+      <xs:element name="boeknr" type="xs:positiveInteger"
+      maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="boekenType">
+    <xs:sequence>
+      <xs:element name="boek" type="bib:boekType"
+      maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="klantenType">
+    <xs:sequence>
+      <xs:element name="klant" type="bib:klantType"
+      maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="bibliotheekType">
+    <xs:sequence>
+      <xs:element name="boeken" type="bib:boekenType"/>
+      <xs:element name="klanten" type="bib:klantenType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="bibliotheek" type="bib:bibliotheekType">
+    <xs:key name="boekKey">
+      <xs:selector xpath="bib:boeken/bib:boek"/>
+      <xs:field xpath="@boek_id"/>
+    </xs:key>
+    <xs:keyref name="klantFkey" refer="bib:boekKey">
+      <xs:selector xpath="bib:klanten/bib:klant/bib:boeknr"/>
+      <xs:field xpath="."/>
+    </xs:keyref>
+  </xs:element>
+</xs:schema>

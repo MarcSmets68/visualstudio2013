@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<bibliotheek xmlns="http://www.vdab.be/XML"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:noNamespaceSchemaLocation="file:///C:\KurtKreemers\CursusPF\XML\Voorbeeld3-81.xsd">
+  <boeken>
+    <boek boek_id="405">
+      <titel>Database Programming with C#</titel>
+      <schrijver>Thomsen</schrijver>
+      <uitgever>Apress</uitgever>
+      <isbn_nr>1590590104</isbn_nr>
+    </boek>
+    <boek boek_id="404">
+      <titel>
+        Teach Yourself C# Web Programming in 21 days
+      </titel>
+      <schrijver>
+        Philip Syme &amp;amp; Peter
+        Aitken
+      </schrijver>
+      <uitgever>Sams</uitgever>
+      <isbn_nr>0672322358</isbn_nr>
+    </boek>
+    <boek boek_id="403">
+      <titel>visual C# .NET</titel>
+      <schrijver>Price Gunderloy</schrijver>
+      <uitgever>Sybex</uitgever>
+      <isbn_nr>0782129110</isbn_nr>
+    </boek>
+    <boek boek_id="402">
+      <titel>
+        The PHP Anthology Object Oriented PHP Solution 1
+      </titel>
+      <schrijver>Harry Fuecks</schrijver>
+      <uitgever>Sitepoint</uitgever>
+      <isbn_nr>0957921853</isbn_nr>
+    </boek>
+    <boek boek_id="401">
+      <titel>
+        The PHP Anthology - Volume II: Applications
+      </titel>
+      <schrijver>Harry Fuecks</schrijver>
+      <uitgever>Sitepoint</uitgever>
+      <isbn_nr>0957921845</isbn_nr>
+    </boek>
+    <boek boek_id="400">
+      <titel>
+        DHTML Utopia Modern Web Design using javascript
+        &amp;amp; DOM
+      </titel>
+      <schrijver>Stuart Langridge</schrijver>
+      <uitgever>Sitepoint</uitgever>
+      <isbn_nr>0957921896</isbn_nr>
+    </boek>
+  </boeken>
+  <klanten>
+    <klant>
+      <naam>Jan</naam>
+      <boeknr>401</boeknr>
+      <boeknr>402</boeknr>
+    </klant>
+    <klant>
+      <naam>Yasmina</naam>
+      <boeknr>405</boeknr>
+    </klant>
+    <klant>
+      <naam>Kim</naam>
+      <boeknr>402</boeknr>
+      <boeknr>403</boeknr>
+    </klant>
+  </klanten>
+</bibliotheek>

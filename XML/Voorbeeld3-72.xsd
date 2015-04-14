@@ -1,0 +1,24 @@
+﻿<?xml version="1.0"?>
+<xs:schema id="Voorbeeld3-72"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:simpleType name="auteurType">
+      <xs:restriction base="xs:string">
+        <xs:minLength value="1" />
+      </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="aantalPaginasType">
+      <xs:restriction base="xs:positiveInteger">
+        <xs:minInclusive value="10"/>
+      </xs:restriction>
+    </xs:simpleType>
+    <xs:complexType name="boekType">
+      <xs:sequence>
+        <xs:element name="titel" type="xs:string"/>
+        <xs:element name="auteur" type="auteurType"/>
+        <xs:element name="aantalPaginas" type="aantalPaginasType"/>
+        <xs:any processContents="skip"/>
+      </xs:sequence>
+    </xs:complexType>
+    <xs:element name="boek" type="boekType"/>
+  </xs:schema>
+
