@@ -51,6 +51,9 @@
     <None Include="3.2.7.2.4.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="3.2.7.3.5.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>

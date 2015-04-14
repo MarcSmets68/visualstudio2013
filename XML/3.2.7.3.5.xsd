@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="_x0033_"
+    targetNamespace="http://tempuri.org/3.xsd"
+    elementFormDefault="qualified"
+    xmlns="http://tempuri.org/3.xsd"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+>
+  <xs:complexType name="type">
+    <xs:sequence>  
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="B" type="xs:string"/>
+      <xs:element name="D" type="xs:string"/>
+    </xs:choice>
+      <xs:element name="C" minOccurs="0" maxOccurs="1"  type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="A" type="type"/>
+</xs:schema>
