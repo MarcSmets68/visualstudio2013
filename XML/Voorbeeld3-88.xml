@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<library xmlns="http://www.vdab.be/XML"
+<library
 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-xsi:SchemaLocation="file:///C:\KurtKreemers\CursusPF\XML\Voorbeeld3-87.xsd">
+xmlns="http://www.vdab.be/XML"
+xsi:schemaLocation="http://www.vdab.be/XML Voorbeeld3-87.xsd">
   <book book_id="405">
     <title>Database Programming with C#</title>
     <author>Thomsen</author>

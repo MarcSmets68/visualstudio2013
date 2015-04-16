@@ -1,6 +1,9 @@
 ﻿<?xml version="1.0"?>
 <xs:schema id="Voorbeeld3-72"
-    xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+          targetNamespace="http://www.vdab.be/XML"
+           xmlns ="http://www.vdab.be/XML"
+           elementFormDefault="qualified">
     <xs:simpleType name="auteurType">
       <xs:restriction base="xs:string">
         <xs:minLength value="1" />

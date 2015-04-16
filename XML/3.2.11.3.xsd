@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="_x0033_"
+    targetNamespace="http://www.vdab.be/xmlcursus/bierendb"
+    elementFormDefault="qualified"
+    xmlns="http://www.vdab.be/xmlcursus/bierendb"
+    xmlns:bier="http://www.vdab.be/xmlcursus/bierendb"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="bierType">
+    <xs:sequence>
+      <xs:element name="naam" type="xs:string"/>
+      <xs:element name="brouwernr" type="xs:positiveInteger"/>
+      <xs:element name="soortnr" type="xs:positiveInteger"/>
+      <xs:element name="alcohol" type="xs:double" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute name="biernr" type="xs:positiveInteger"/>
+  </xs:complexType>
+  <xs:complexType name="bierenType">
+    <xs:sequence>
+      <xs:element name="bier" type="bier:bierType"
+     minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="postcodeType">
+    <xs:restriction base="xs:positiveInteger">
+      <xs:minInclusive value="1000"/>
+      <xs:maxInclusive value="9999"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="brouwerType">
+    <xs:sequence>
+      <xs:element name="brnaam" type="xs:string"/>
+      <xs:element name="adres" type="xs:string"  />
+      <xs:element name="postcode" type="bier:postcodeType"/>
+      <xs:element name="gemeente" type="xs:string"/>
+      <xs:element name="omzet"  type="xs:positiveInteger" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute name="brouwernr" type="xs:positiveInteger"/>
+  </xs:complexType>
+  <xs:complexType name="brouwersType">
+    <xs:sequence>
+      <xs:element name="brouwerij" type="bier:brouwerType" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="soortType">
+    <xs:sequence>
+      <xs:element name="soort" type="xs:string"/>
+    </xs:sequence>
+    <xs:attribute name="soortnr" type="xs:positiveInteger"/>
+  </xs:complexType>
+  <xs:complexType name="soortenType">
+    <xs:sequence>
+      <xs:element name="soort" type="bier:soortType" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="bierendbType">
+    <xs:sequence>
+      <xs:element name="bieren" type="bier:bierenType"/>
+      <xs:element name="brouwers" type="bier:brouwersType"/>
+      <xs:element name="soorten" type="bier:soortenType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="bierendb" type="bier:bierendbType">
+    <xs:key name="bierKey">
+      <xs:selector xpath="bier:bieren/bier:bier"/>
+      <xs:field xpath="@biernr"/>
+    </xs:key>
+    <xs:key name="brouwerKey">
+      <xs:selector xpath="bier:brouwers/bier:brouwerij"/>
+      <xs:field xpath="@brouwernr"/>
+    </xs:key>
+    <xs:key name="soortKey">
+      <xs:selector xpath="bier:soorten/bier:soort"/>
+      <xs:field xpath="@soortnr"/>
+    </xs:key>
+    <xs:keyref name="brouwerFkey" refer="bier:brouwerKey">
+      <xs:selector xpath="bier:bieren/bier:bier/bier:brouwernr"/>
+      <xs:field xpath="."/>
+    </xs:keyref>
+    <xs:keyref name="soortFkey" refer="bier:soortKey">
+      <xs:selector xpath="bier:soorten/bier:soort/bier:soortnr"/>
+      <xs:field xpath="."/>
+    </xs:keyref>
+  </xs:element>
+</xs:schema>

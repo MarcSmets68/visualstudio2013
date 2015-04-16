@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="_x0033_"
+    targetNamespace="http://www.vdab.be/xmlcursus/boek"
+    elementFormDefault="qualified"
+    xmlns:boek="http://www.vdab.be/xmlcursus/boek"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  
+  <xs:simpleType name="beroepencodeType">
+  <xs:restriction base="xs:string">
+    <xs:pattern value="[0-9]{6}"/>
+  </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="curriculumType">
+    <xs:sequence>
+      <xs:element name="Naam" type="xs:string"/>
+      <xs:element name="Beroepencode" type="boek:beroepencodeType"/>
+    </xs:sequence>
+    <xs:attribute name="nr" type="xs:unsignedInt"/>
+  </xs:complexType>
+  <xs:complexType name="onderwerpType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="nr" type="xs:unsignedInt" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="curriculumsType">
+    <xs:sequence>
+      <xs:element name="Curriculum" type="boek:curriculumType" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="onderwerpenType">
+    <xs:sequence>
+      <xs:element name="Onderwerp" type="boek:onderwerpType" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="ISBNType">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[0-9]{9} [0-9a-zA-Z]"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="boektype">
+    <xs:sequence>
+      <xs:element name="Titel" type="xs:string"/>
+      <xs:element name="Schrijver" type="xs:string"/>
+      <xs:element name="Uitgever" type="xs:string"/>
+      <xs:element name="Curriculums" type="boek:curriculumsType"/>
+      <xs:element name="Onderwerpen" type="boek:onderwerpenType"/>
+    </xs:sequence>
+    <xs:attribute name="isbn" type="boek:ISBNType"/>
+    <xs:attribute name="boeknr" type="xs:unsignedInt"/>
+  </xs:complexType>
+  <xs:complexType name="boekentype">
+    <xs:sequence>
+      <xs:element name="Boek" type="boek:boektype" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Boeken" type="boek:boekentype">
+    <xs:key name="isbnKey">
+      <xs:selector xpath="boek:Boek"/>
+      <xs:field xpath="@isbn"/>
+    </xs:key>
+    <xs:key name="boeknrKey">
+      <xs:selector xpath="boek:Boek"/>
+      <xs:field xpath="@boeknr"/> 
+    </xs:key>
+  </xs:element>
+
+</xs:schema>

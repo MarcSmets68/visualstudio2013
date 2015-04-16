@@ -45,6 +45,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="3.2.11.2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="3.2.11.3.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="3.2.7.2.3.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -55,7 +61,7 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="App.config" />
-    <None Include="SchemaTips.xsd">
+    <None Include="3.2.11.1.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Voorbeeld3-81.xsd">
@@ -77,6 +83,9 @@
     <Content Include="2.5.3.xml" />
     <Content Include="Voorbeeld3-82.xml" />
     <Content Include="Voorbeeld3-88.xml" />
+    <Content Include="XML_Reizen.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <None Include="Voorbeeld3-93.xsd">
       <SubType>Designer</SubType>
     </None>

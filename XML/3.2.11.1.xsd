@@ -22,7 +22,7 @@
   </xs:complexType>
   <xs:element name="bieren" type="lijst:bierenType">
     <xs:key name="bierKey">
-      <xs:selector xpath="lijst:bieren/lijst:bier"/>
+      <xs:selector xpath="lijst:bier"/>
       <xs:field xpath="@biernr"/>
     </xs:key>
   </xs:element>

@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0"?>
-<boek xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-xsi:noNamespaceSchemaLocation=
-"file:///C:\KurtKreemers\CursusPF\XML\Voorbeeld3-72.xsd">
+<boek xmlns="http://www.vdab.be/XML"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.vdab.be/XML Voorbeeld3-72.xsd">
   <titel>Praktisch UML</titel>
   <auteur>Jos Warmer</auteur>
   <aantalPaginas>220</aantalPaginas>
-  <auteur>Anneke Kleppe</auteur>
+  <auteur>test</auteur>
 </boek>
