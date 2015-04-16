@@ -1,5 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<Reizen>
+<Reizen xmlns="http://www.vdab.be/XML_Reizen"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.vdab.be/XML_Reizen Schema_Reizen.xsd">
   <Reis boekId="624">
     <titel>Madagascar Adventure</titel>
     <beschrijving>Madagaskar is een land dat tot de verbeelding van vele reizigers spreekt. 
@@ -9,31 +11,33 @@
     vogels en stekelwouden ontvouwt zich hier voor je. 
     Daarnaast bezit het eiland een aantrekkelijke mengeling van bevolkingsgroepen, 
     ontstaan uit Aziatische en Afrikaanse voorouders.</beschrijving>
-    <tijdsduur>10</tijdsduur>
-    <prijsinfo>
-      <prijs>1646</prijs>
-      <valuta>euro</valuta>
-      <prijsomschrijving>retourvlucht Zaventem - Antanarivo inbegrepen</prijsomschrijving>
-    </prijsinfo>
-    <begeleide>ja</begeleide>
-    <opmerking>
+    <tijdsduur>10</tijdsduur> 
+      <prijs valuta="EUR">1646 </prijs>
+      <prijsomschrijving inbegrepen="ja">retourvlucht Zaventem - Antanarivo </prijsomschrijving> 
+    <begeleide>ja</begeleide>    
+    <opmerkingen>
+      <opmerking>
       Het dagprogramma wijkt iets af van wat in de brochure vermeld staat. 
       We verblijven op dag 7 en 8 namelijk niet in Fianarantsoa, 
       maar in een prachtig natuurgebied ten zuiden hiervan.
+      </opmerking>
+       <opmerking>
       Er wordt ook aangeraden voldoende regenkledij mee te nemen.
-    </opmerking>
-    <Dagprogramma>
+       </opmerking>
+    </opmerkingen>
+    <beeld foto="madagascar.jpg" breedte="455" hoogte="300" alt="Madagascar kent 7 soorten Baobabs"/>
+    <dagprogramma>
       <Dag nr="1">
         <titel>Vertrek, aankomst Antananarivo</titel>
-        <bechrijving>
+        <beschrijving>
           In de ochtend vliegen we via Parijs naar Antananarivo. 
           Na aankomst op het vliegveld Ivato wordt je opgewacht door 
           de reisbegeleider die je naar een hotel in de stad brengt.
-        </bechrijving>
+        </beschrijving>
       </Dag>
       <Dag nr="2">
         <titel>Antananarivo  Antsirabe</titel>
-        <bechrijving>
+        <beschrijving>
           We stappen 's morgens meteen op de bus die ons naar over het centrale hoogland 
           (het zogenaamde haut-plateau) naar Antsirabe brengt, de stad van de halfedelstenen. 
           Reizend langs enorme erosiegaten, lavaka geheten, maken we bij Ambatolampy een korte wandeling 
@@ -43,11 +47,11 @@
           's Avonds kun je in de stad uit eten gaan; net zoals in de meeste grotere plaatsen kun je 
           hier erg lekker Chinees of Frans eten krijgen voor een laag bedrag: een simpele Madagassische maaltijd kost
           € 3, betere, vaak Frans geori�nteerde maaltijden kosten tussen de € 4.50 en € 9.
-        </bechrijving>
+        </beschrijving>
       </Dag>
       <Dag nr="3">
         <titel>Antsirabe  Ambositra, vrije ochtend</titel>
-        <bechrijving>
+        <beschrijving>
           Na een Frans ontbijt heb je de ochtend vrij om de levendige en leuke markt van Antsirabe te verkennen. 
           Je ontkomt er vrijwel niet aan om je net als de Madagassiër een stukje met de pousse-pousse te laten 
           vervoeren. Op de markt zijn de mensen meestal erg nieuwsgierig en knopen graag een praatje met je aan. 
@@ -59,11 +63,11 @@
           rijstterrassen en door mimosa en eucalyptusbossen. Via een stevige klim over een droge berghelling komen 
           we aan in Ambositra, de hoofdstad van de kunstnijverheid en het houtsnijwerk. Het rustige provinciestadje 
           wordt gekenmerkt door mooie huizen en zeer vriendelijke mensen.
-        </bechrijving>
+        </beschrijving>
       </Dag>
       <Dag nr="4">
         <titel>Ambositra, vrije dag</titel>
-        <bechrijving>
+        <beschrijving>
           Vandaag kun je een buitengewoon fraaie wandeling door de rijstvelden rondom Ambositra maken. 
           Je komt dan uit bij het paleis van de Betsileokoningen dat door de Zafimanirystam met traditioneel 
           houtsnijwerk is versierd. De sawaïs en de Aziatische gelaatstrekken en kleding van de bevolking doen je 
@@ -72,11 +76,11 @@
           Je kunt daar nog door de straten met hun karakteristieke huizen dwalen of in de winkeltjes een aardige
           collectie houtsnijwerk uit de regio bekijken. Ook een bezoek aan het klooster met zijn houtsnijwerkplaats
           is een aanrader.
-        </bechrijving>
+        </beschrijving>
       </Dag>
       <Dag nr="5">
         <titel>Ankaranareservaat</titel>
-        <bechrijving>
+        <beschrijving>
           Deze dag bezoek je het Ankarana Reserve Special, ook wel bekend onder de naam Arote de Tsingy.
           Dit reservaat bestaat uit droogte bossen en lijmsteenformaties. Deze vlijmscherpe lijmsteenformaties
           worden Tsingy genoemd en zijn duizenden jaren geleden door watererosie gevormd. Deze grillige rotsen 
@@ -85,21 +89,21 @@
           gebied. Veel natuurdocumentaires over Madagaskar zijn hier opgenomen. Deze dag zul je verschillende 
           wandelingen maken om dit boeiende gebied te verkennen. 
           De wandelingen zijn voor iedereen met een normale conditie goed te doen.
-        </bechrijving>
+        </beschrijving>
       </Dag>
       <Dag nr="6">
         <titel>Ankarana  Nosy Komba</titel>
-        <bechrijving>
+        <beschrijving>
           In de morgen vertrek je naar de kust. Je rijdt door een vruchtbaar gedeelte van het noorden.
           Cacao, koffie en Ylang Ylang (een bloem die de basis voor vele parfums vormt) plantages zullen aan ons 
           voorbijtrekken. Aangekomen aan de kust kun je lunchen in een wel heel mooi hotel. Hierna stap je op een 
           rapide, een snelle boot, voor de overtocht naar het idyllische en rustige eilandje Nosy Komba.
           We overnachten in tweepersoons huisjes.
-        </bechrijving>
+        </beschrijving>
       </Dag>
       <Dag nr="7">
         <titel>Nosy Komba</titel>
-        <bechrijving>
+        <beschrijving>
           Dit eiland is in tegenstelling tot het nabij gelegen Nosy Be gelukkig nog niet door veel toeristen ontdekt.
           Wel heeft het paradijselijk witte stranden, mooie koraalriffen en een afwisselende tropische vegetatie.
           Hier heb je de tijd om in alle rust de opgedane indrukken van de reis op je in te laten werken. 
@@ -107,30 +111,31 @@
           eigen lemuren, in dit geval zwarte lemuren. Doordat ze volgens een fady (taboe) van het eiland niet gegeten
           mogen worden komen ze in grote getalen voor. Net voor de kust liggen prachtige koraalriffen die uitnodigen
           om te gaan snorkelen.
-        </bechrijving>
+        </beschrijving>
       </Dag>
       <Dag nr="8">
         <titel>vrije dag</titel>
-        <bechrijving>
+        <beschrijving>
           We ontdekken het eiland verder.
-        </bechrijving>
+        </beschrijving>
       </Dag>
       <Dag nr="9">
         <titel>Nosy Komba  Nosy Be</titel>
-        <bechrijving>
+        <beschrijving>
           's Ochtends brengt de rapide je naar Nosy Be, waar je het vliegtuig neemt om terug te keren naar 
           Antananarivo. Hier kun je de rest van de dag vrij besteden. 's Avonds check je in voor je terugvlucht,
           welke vlak na middernacht vertrekt.
-        </bechrijving>
+        </beschrijving>
       </Dag>
       <Dag nr="10">
         <titel>	Aankomst in België</titel>
+      <beschrijving/>
       </Dag>
-    </Dagprogramma>
+    </dagprogramma>
     <vertrekdatas>
-      <vertrekdata>15/1/2004</vertrekdata>
-      <vertrekdata>2/2/2004</vertrekdata>
-      <vertrekdata>13/3/2004 </vertrekdata>
+      <vertrekdatum>2004-01-15</vertrekdatum>
+      <vertrekdatum>2004-02-02</vertrekdatum>
+      <vertrekdatum>2004-03-13 </vertrekdatum>
     </vertrekdatas>
     
     <webadressen>
@@ -147,20 +152,24 @@
       deze safari niet missen!
     </beschrijving>
     <tijdsduur>8</tijdsduur>
-    <prijsinfo>
-      <prijs>1248</prijs>
-      <valuta>euro</valuta>
-      <prijsomschrijving>vlucht Windoek niet inbegrepen</prijsomschrijving>
-    </prijsinfo>
+
+      <prijs valuta="EUR">1248</prijs>
+      <prijsomschrijving inbegrepen="nee">vlucht Windoek </prijsomschrijving>
+  
     <begeleide>ja</begeleide>
-    <opmerking>
+    <opmerkingen>
+       <opmerking>
       Breng zowel lichte als warme kledij mee want nachttemperaturen onder nul zijn geen uitzondering in de woestijn.
+       </opmerking>
+       <opmerking>
       Gasten worden geadviseerd om anti-malaria tabletten te slikken.
-    </opmerking>
-    <Dagprogramma>
+       </opmerking>
+    </opmerkingen>
+    <beeld foto="namibia.jpg" breedte="455" hoogte="300" alt="Sossusvlei heeft de hoogste duinen ter wereld"/>
+    <dagprogramma>
       <Dag nr="1">
         <titel>Afhalen vliegveld, wildsafari</titel>
-        <bechrijving>
+        <beschrijving>
           Vertrek uit Windhoek om 08h00 en we reizen naar ons exclusieve kampeerterrein in het Intu Afrika 
           Kalahari Privé Wildreservaat. Het omliggende gebied met zijn kleurrijke duinen van rood zand, 
           de 'camelthorn' bomen in de vorm van een paraplu, en de grote verscheidenheid wilde dieren, vogels,
@@ -173,11 +182,11 @@
           gezamelijke nesten van de wever, gebouwd in de 'camelthorn' bomen. Op één van de omringende duinen 
           kunt u van sundowners genieten terwijl u de zon over dit ietwat ruige maar adembenemend mooie land
           onder ziet gaan.
-        </bechrijving>
+        </beschrijving>
       </Dag>
       <Dag nr="2">
         <titel>spoorzoeken, safari</titel>
-        <bechrijving>
+        <beschrijving>
           Vroege ochtendwandeling met een Bushman (San) spoorzoeker die de geheimen van de Kalahari,
           die enkel aan de San bekend zijn, aan u uitlegt. Voor zover men weet, waren de San de eerste bewoners 
           van de Kalahari. Traditiegetrouw zijn dit bedreven jagers die in kleine gemeenschappen leven. 
@@ -185,33 +194,33 @@
           Safaririt in de middag waarbij u een verrassende verscheidenheid wilde dieren en vogels, en 
           misschien zelfs leeuwen, zal zien. Diner rond het kampvuur met een behaaglijke deken wordt gevolgd
           door een nachtelijke safaririt tijdens welke u vele nachtdieren kan waarnemen.
-        </bechrijving>
+        </beschrijving>
       </Dag>
       <Dag nr="3">
         <titel>Tsaris</titel>
-        <bechrijving>
+        <beschrijving>
           We reizen via Duwisib Castle, wat gebouwd is door de legendarische Baron von Wolf voor zijn Amerikaanse
           vrouw, en rijden langs schilderachtige landwegen naar ons exclusieve kamp in het hart van de ruige Tsaris
           Bergen. Het spectaculaire natuurschoon van de canyons van de Tsaris Bergen en de natuurlijke bronnen vormen
           een dramatisch contrast met het landschap van rode duinen in de Kalahari. Dit gebied is een waar paradijs 
           voor geologen want het was in dit gebied dat de oudste Shelley fossielen gevonden zijn.
           Geniet van sundowners vanaf een uitgezocht punt wat een schitterend panorama uitzicht op de omgeving biedt.
-        </bechrijving>
+        </beschrijving>
       </Dag>
       <Dag nr="4">
         <titel>woestijnwandeling</titel>
-        <bechrijving>
+        <beschrijving>
           Met zijn buitengewone vergezichten, dit uitgestrekte gebied met zijn vele canyons herinnert aan de
           Fish River Canyon, maar dan kleiner. We volgen één van de vele wandelroutes door de schaduwrijke bergkloven
           waar in het seizoen natuurlijke bronnen voorkomen. Tijdens de wandeltocht kunnen we verschillende dieren 
           zoals de Hartmann's bergzebra, koedoe, klipspringer, steenbok en enkele roofvogels zoals de verschillende 
           soorten adelaars die in dit gebied broeden, zien. Met het ondergaan van de zon, biedt de droge lucht van
           dit uitgestrekte en stille gebied een ongeëvenaarde gelegenheid om onze sterrenhemel te bewonderen.
-        </bechrijving>
+        </beschrijving>
       </Dag>
       <Dag nr="5">
         <titel>Tsauchab, Sosssuvlei, Naukluft</titel>
-        <bechrijving>
+        <beschrijving>
           Vandaag is opnieuw een dag vol tegenstellingen wanneer we de Tsaris Bergen achter ons laten en koers zetten
           in westelijke richting naar de Tsauchab Vallei en de majestueuze duinen van de Sossusvlei.
           De hoge duinen met hun indrukwekkende rode, gebogen wanden die voortkomen uit witte klei pannen laten
@@ -222,20 +231,20 @@
           riviervalleien en glooiende heuvels. Dit gebied is een beschermd gebied voor de Hartmann's bergzebra,
           oryx, springbok en koedoe. Een kenmerk van onze mooie kampeerplaats is de ruïne van een oud politiebureau
           wat zich in de schaduw van eeuwenoude bomen bevindt en ons terugneemt naar de tijd van de Schutztruppe.
-        </bechrijving>
+        </beschrijving>
       </Dag>
       <Dag nr="6">
         <titel>Naukluft</titel>
-        <bechrijving>
+        <beschrijving>
           Vandaag verkennen we één van de meest ongerepte bergkloven in de Naukluft. 
           Tot aan het plateau nemen we ons 4x4 voertuig. Daar vandaan gaan we te voet verder.
           We lopen door de bergkloof met zijn vele 'quiver trees' en rots-poelen waarin we lekker af kunnen koelen.
           Als extra aktiviteit kan u 's middags gaan paardrijden bij een nabij gelegen guest farm.
-        </bechrijving>
+        </beschrijving>
       </Dag>
       <Dag nr="7">
         <titel>Walvis Bay, Swakopmund</titel>
-        <bechrijving>
+        <beschrijving>
           Al reizend via Solitaire en door de Kuiseb Rivier, zetten we koers richting Walvis Bay.
           Afhanged van de tijd van het jaar kunnen we hier zwermen flamingo's aantreffen die voedsel in de lage 
           wateren van de lagune nabij Walvis Bay zoeken. Een korte tocht neemt ons naar het gezellige kustplaatsje 
@@ -243,19 +252,19 @@
           Swakopmund is voor eigen rekening). De middag is vrij om deel te nemen aan één van de vele aktiviteiten die
           hier aangeboden worden, zoals duin-skiën, quad biking etc. Ook kan u op uw gemak door het stadje wandelen 
           en de charme en ontspannen sfeer van Swakopmund in u opnemen.
-        </bechrijving>
+        </beschrijving>
       </Dag>
       <Dag nr="8">
         <titel>terugreis</titel>
-        <bechrijving>
+        <beschrijving>
           Na het ontbijt in het hotel, vertrekken we naar Windhoek, waar u uw terugvlucht kunt nemen.
-        </bechrijving>
+        </beschrijving>
       </Dag>
-    </Dagprogramma>
+    </dagprogramma>
     <vertrekdatas>
-      <vertrekdata>22/1/2004</vertrekdata>
-      <vertrekdata>3/5/2004</vertrekdata>
-      <vertrekdata>1/6/2004 </vertrekdata>
+      <vertrekdatum>2004-01-22</vertrekdatum>
+      <vertrekdatum>2004-05-03</vertrekdatum>
+      <vertrekdatum>2004-06-01</vertrekdatum>
     </vertrekdatas>
 
     <webadressen>
@@ -272,51 +281,53 @@
       deze safari niet missen!
     </beschrijving>
     <tijdsduur>4</tijdsduur>
-    <prijsinfo>
-      <prijs>1789</prijs>
-      <valuta>usd</valuta>
-      <prijsomschrijving>retourvlucht Zaventem - Johannesburg  inbegrepen</prijsomschrijving>
-    </prijsinfo>
+    
+      <prijs valuta="USD">1789</prijs>
+      <prijsomschrijving inbegrepen="ja">retourvlucht Zaventem - Johannesburg</prijsomschrijving>
+
     <begeleide>ja</begeleide>
-    <opmerking>
+    <opmerkingen>
+      <opmerking>
     Een fantastische safari in het wereld beroemde Sabi-Sand Wildreservaat. 
     Geniet van safari's in open safari voertuigen als ook van safari wandelingen onder begeleiding van ervaren 
     parkopzichters. U verblijft in een luxueuze lodge met schitterende uitzichten op het reservaat.
-    </opmerking>
-    <Dagprogramma>
+     </opmerking>
+    </opmerkingen>
+    <beeld foto="zafrika.jpg" breedte="300" hoogte="455" alt="The big Five"/>
+    <dagprogramma>
       <Dag nr="1">
         <titel>Aankomst - kennismaking</titel>
-        <bechrijving>
+        <beschrijving>
           Vlieg vanaf Johannesburg naar Skukuza / White River - transfer van het vliegveld naar de lodge.
           U verblijft voor 3 nachten in de Sabi Sabi Privé Wildreservaat. Gelegen in het beroemde Sabi-Sand 
           Wildreservaat - befaamd om de wilde dieren en de inheemse flora - Sabi Sabi beschikt over ruime,
           comfortabele accommodatie. Aktiviteiten bestaan uit safariwandelingen en game drives in open 
           safarivoertuigen in de ochtend en de avond. Het kamp serveert uitstekende maaltijden en beschikt bovendien
           over een schitterend zwembad.
-        </bechrijving>
+        </beschrijving>
       </Dag>
       <Dag nr="2">
         <titel>Safari</titel>
-        <bechrijving>
+        <beschrijving>
      Vandaag kunt u genieten van de faciliteiten bij de lodge en van de schitterende omgeving. 
      In de ochtend en vroeg in de avond gaat u met game drives mee. Overnachting in Sabi Sabi Privé Wildreservaat.
-        </bechrijving>
+        </beschrijving>
       </Dag>
       <Dag nr="3">
         <titel>Safari</titel>
-        <bechrijving>
+        <beschrijving>
           Ook vandaag kunt u genieten van de faciliteiten bij de lodge en van de schitterende omgeving.
           In de ochtend gaan we specifiek op zoek naar luipaarden. Overnachting in Sabi Sabi Privé Wildreservaat.
-        </bechrijving>
+        </beschrijving>
       </Dag>
       <Dag nr="4">
         <titel>Terugvlucht</titel>
-        <bechrijving>
+        <beschrijving>
           Na een hartig ontbijt worden alle gasten verzameld en naar onze landingststrio gebracht voor hun 
           terugvlucht naar Johannesburg.
-        </bechrijving>
+        </beschrijving>
       </Dag>    
-    </Dagprogramma>
+    </dagprogramma>
 
     <webadressen>
       <webadres>http://www.parks-sa.co.za/</webadres>
