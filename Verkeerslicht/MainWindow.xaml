@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Verkeerslicht" Height="300" Width="525">
     <Canvas>
-        
+        <Rectangle Name="Balk" Canvas.Left="150" Height="270" Width="70" Fill="Yellow"></Rectangle>
         <Ellipse Name="Rood" Fill="Red" Canvas.Left="145" VerticalAlignment="Top" Margin="10" Height="60" Width="60"></Ellipse>
         <Ellipse Name="Oranje" Fill="Orange" Canvas.Left="145" Canvas.Top="90"  Margin="10" Height="60" Width="60"></Ellipse>
         <Ellipse Name="Groen" Fill="Green" Canvas.Left="145" Canvas.Top="175" Margin="10" Height="60" Width="60"></Ellipse>
