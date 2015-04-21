@@ -1,0 +1,14 @@
+﻿<Window x:Class="Verkeerslicht.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Verkeerslicht" Height="300" Width="525">
+    <Canvas>
+        <Rectangle Name="Balk" Canvas.Left="150" Height="270" Width="70" Fill="Yellow"></Rectangle>
+        <Ellipse Name="Rood" Fill="Red" Canvas.Left="145" VerticalAlignment="Top" Margin="10" Height="60" Width="60"></Ellipse>
+        <Ellipse Name="Oranje" Fill="Orange" Canvas.Left="145" Canvas.Top="90"  Margin="10" Height="60" Width="60"></Ellipse>
+        <Ellipse Name="Groen" Fill="Green" Canvas.Left="145" Canvas.Top="175" Margin="10" Height="60" Width="60"></Ellipse>
+        <Button Canvas.Left="250" Canvas.Top="50" Name="ButtonGreen" Margin="20" Content="_Go" Click="Button_Go" Width="75" ></Button>
+        <Button Canvas.Left="250" Canvas.Top="100" Grid.Row="2" Grid.Column="1" Name="ButtonOrange" Margin="20" Content="_Opgelet" Click="Button_Opgelet"  Width="75"  ></Button>
+        <Button Canvas.Left="250" Canvas.Top="150" Grid.Row="3" Grid.Column="1" Name="ButtonRed" Margin="20" Content="_Stop" Click="Button_Stop"  Width="75"></Button>
+    </Canvas>
+</Window>
