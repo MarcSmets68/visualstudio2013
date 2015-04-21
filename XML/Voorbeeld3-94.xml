@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<bibliotheek xmlns="http://www.vdab.be/XML_IMPORT"
+xmlns:bk="http://www.vdab.be/XML"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.vdab.be/XML_IMPORT file:///C:\KurtKreemers\CursusPF\XML\Voorbeeld3-93.xsd">
+  <bk:boek>
+    <bk:boek_id>405</bk:boek_id>
+    <bk:titel>Database Programming with C#</bk:titel>
+    <bk:schrijver>Thomsen</bk:schrijver>
+    <bk:uitgever>Apress</bk:uitgever>
+    <bk:isbn_nr>1590590104</bk:isbn_nr>
+  </bk:boek>
+</bibliotheek>
