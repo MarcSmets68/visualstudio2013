@@ -81,7 +81,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="2.5.3.xml" />
     <Content Include="Voorbeeld3-82.xml">
       <SubType>Designer</SubType>
     </Content>
