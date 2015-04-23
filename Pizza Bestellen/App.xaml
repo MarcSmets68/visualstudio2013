@@ -1,7 +1,7 @@
-﻿<Application x:Class="WpfCursus.App"
+﻿<Application x:Class="Pizza_Bestellen.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             StartupUri="Hobbylijst.xaml">
+             StartupUri="PizzaWindow.xaml">
     <Application.Resources>
          
     </Application.Resources>
