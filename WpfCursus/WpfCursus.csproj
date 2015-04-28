@@ -53,6 +53,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="BarWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ButtonGebruikWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -64,6 +68,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="BarWindow.xaml.cs">
+      <DependentUpon>BarWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="ButtonGebruikWindow.xaml.cs">
       <DependentUpon>ButtonGebruikWindow.xaml</DependentUpon>
@@ -123,6 +130,17 @@
     <Resource Include="imageshobby\trompet.jpg" />
     <Resource Include="imageshobby\turnen.jpg" />
     <Resource Include="imageshobby\voetbal.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\afsluiten.png" />
+    <Resource Include="images\copy.png" />
+    <Resource Include="images\cut.png" />
+    <Resource Include="images\italic.png" />
+    <Resource Include="images\open.png" />
+    <Resource Include="images\paste.png" />
+    <Resource Include="images\preview.png" />
+    <Resource Include="images\print.png" />
+    <Resource Include="images\save.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -3,10 +3,26 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="TelefoonWindow" Height="350" Width="525" Loaded="Window_Loaded">
     <StackPanel>
-        <StackPanel Width="300" HorizontalAlignment="Left">
-            <ComboBox Name="ComboBoxSelectie" Height="20" Margin="15,15,0,0"></ComboBox>
-            <ListBox Name="ListBoxleden" Height="200" Margin="15,30,0,30"></ListBox>
+        <StackPanel>
+            <ComboBox Name="ComboBoxSelectie" Height="20" Margin="15,15,0,0" Width="250" HorizontalAlignment="Left" SelectionChanged="ComboBoxSelectie_SelectionChanged"></ComboBox>
+            <StackPanel Orientation="Horizontal">
+            <ListBox x:Name="ListBoxleden" Height="200" Margin="15,30,0,30" Width="250" HorizontalAlignment="Left">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Border BorderBrush="Black" BorderThickness="1" Width="200">
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="{Binding Foto}" Stretch="Fill" Height="40" Width="40"/>
+                                <TextBlock Margin="15,0,0,0" VerticalAlignment="Center" Text="{Binding Naam}"/>
+                            </StackPanel>
+                        </Border>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+                <Button Name="Bellen" Margin="100" Width="75" Height="75" Click="Bellen_Click" >
+                    <Image Source="images/telefoon2.jpg"/>
+                </Button>
+            </StackPanel>
         </StackPanel>
     </StackPanel>
-    
+
 </Window>

@@ -1,0 +1,73 @@
+﻿<Window x:Class="WpfCursus.BarWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:custom="clr-namespace:WpfCursus"
+        Title="Werken met Bars" Height="350" Width="525" Loaded="Window_Loaded">
+    <Window.CommandBindings>
+        <CommandBinding Command="{x:Static custom:BarWindow.mijnRouteCtrlB}" Executed="ctrlBExecuted"/>
+        <CommandBinding Command="{x:Static custom:BarWindow.mijnRouteCtrlI}" Executed="ctrlIExecuted" />
+    </Window.CommandBindings>
+
+    <Window.InputBindings>
+        <KeyBinding Key="B" Modifiers="Control" Command="{x:Static custom:BarWindow.mijnRouteCtrlB}"/>
+            <KeyBinding Key="I" Modifiers="Control" Command="{x:Static custom:BarWindow.mijnRouteCtrlI}"/>
+    </Window.InputBindings>
+    <DockPanel>
+        <Menu Height="24" Name="MenuBalk" DockPanel.Dock="Top">
+            <MenuItem Header="Editeren">
+                <MenuItem Header="Knippen" Command="Cut"></MenuItem>
+                <MenuItem Header="Kopiëren" Command="Copy"></MenuItem>
+                <MenuItem Header="Plakken" Command="Paste"></MenuItem>
+            </MenuItem>
+            <MenuItem Header="_Lettertype" >
+                <MenuItem Name="Fontjes" Header="Font">
+                    <MenuItem Name="Courier" Header="Courier New" IsCheckable="True" Click="Lettertype_Click"></MenuItem>
+                    <MenuItem Name="Arial" Header="Arial" IsCheckable="True" Click="Lettertype_Click"></MenuItem>
+                    <MenuItem Name="Comic" Header="Comic Sans MS" IsCheckable="True" Click="Lettertype_Click"></MenuItem>
+                </MenuItem>
+                <MenuItem Name="MenuVet" Header="_Vetdruk" IsCheckable="True" Click="MenuVet_Click" InputGestureText="Ctrl+B"></MenuItem>
+                <MenuItem Name="Menuschuin" Header="_Schuindruk" IsCheckable="True" Click="MenuSchuin_Click" InputGestureText="Ctrl+I" ></MenuItem>
+            </MenuItem>
+            
+        </Menu>
+        <ToolBarTray Height="24" DockPanel.Dock="Top">
+            <ToolBar Name="EditeerBalk">
+                <Button Command="Cut">
+                    <Image Source="images/cut.png"></Image>
+                </Button>
+                <Button Command="Copy">
+                    <Image Source="images/copy.png"></Image>
+                </Button>
+                <Button Command="Paste">
+                    <Image Source="images/paste.png"></Image>
+                </Button>
+                <ComboBox Name="LettertypeComboBox" Width="150" ItemsSource="{Binding Source={x:Static Member=Fonts.SystemFontFamilies}}" SelectionChanged="LettertypeComboBox_SelectionChanged">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock FontFamily="{Binding}" Text="{Binding}"/>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+            </ToolBar>
+            <ToolBar Name="LettertypeBalk">
+                <ToggleButton Name="ButtonVet" Click="MenuVet_Click">
+                    <Image Source="images/bold.png"></Image>
+                </ToggleButton>
+                <ToggleButton Name="ButtonSchuin" Click="MenuSchuin_Click">
+                    <Image Source="images/italic.png"></Image>
+                </ToggleButton>
+            </ToolBar>
+        </ToolBarTray>
+        
+        <StatusBar DockPanel.Dock="Bottom" Height="24">
+            <StatusBarItem DockPanel.Dock="Right" Name="StatusVet" Width="50" HorizontalContentAlignment="Right"
+                           FontWeight="{Binding ElementName=TextBoxVoorbeeld, Path=FontWeight}">Vet</StatusBarItem>
+            <StatusBarItem DockPanel.Dock="Right" Name="StatusSchuin" Width="50" HorizontalContentAlignment="Right">Schuin</StatusBarItem>
+            <StatusBarItem Name="StatusLettertype" Content="{Binding ElementName=LettertypeComboBox, Path=SelectedValue}"></StatusBarItem>
+        </StatusBar>
+      
+        <TextBox Name="TextBoxVoorbeeld" Text="Dit is voorbeeldtekst" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
+                FontSize="24" TextWrapping="Wrap" MaxWidth="600" MaxHeight="900" FontFamily="{Binding ElementName=LettertypeComboBox,Path=SelectedValue}">
+        </TextBox>
+    </DockPanel>
+</Window>
