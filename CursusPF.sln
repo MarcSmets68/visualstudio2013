@@ -25,6 +25,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pizza Bestellen", "Pizza Be
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Telefoon", "Telefoon\Telefoon.csproj", "{701F6BB5-006F-4114-87B7-AD5A22E401BE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParkingBon", "ParkingBon\ParkingBon.csproj", "{C9B20B1D-936D-40EE-8399-C5D21241B247}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -75,6 +77,10 @@ Global
 		{701F6BB5-006F-4114-87B7-AD5A22E401BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{701F6BB5-006F-4114-87B7-AD5A22E401BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{701F6BB5-006F-4114-87B7-AD5A22E401BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C9B20B1D-936D-40EE-8399-C5D21241B247}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9B20B1D-936D-40EE-8399-C5D21241B247}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9B20B1D-936D-40EE-8399-C5D21241B247}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9B20B1D-936D-40EE-8399-C5D21241B247}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
