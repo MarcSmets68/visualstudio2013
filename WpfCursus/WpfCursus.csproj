@@ -61,6 +61,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="BrushesWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ButtonGebruikWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -79,6 +83,9 @@
     <Compile Include="BarWindow.xaml.cs">
       <DependentUpon>BarWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="BrushesWindow.xaml.cs">
+      <DependentUpon>BrushesWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ButtonGebruikWindow.xaml.cs">
       <DependentUpon>ButtonGebruikWindow.xaml</DependentUpon>
     </Compile>
@@ -86,15 +93,46 @@
       <DependentUpon>ButtonWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="DataBindingWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Hobbylijst.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="KleurenKiezenWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\regenboog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\ShinyRed.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\standaardStijlen.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\turquoise.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataBindingWindow.xaml.cs">
+      <DependentUpon>DataBindingWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Hobby.cs" />
     <Compile Include="Hobbylijst.xaml.cs">
       <DependentUpon>Hobbylijst.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Kleur.cs" />
+    <Compile Include="KleurenKiezenWindow.xaml.cs">
+      <DependentUpon>KleurenKiezenWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -148,6 +186,9 @@
     <Resource Include="images\preview.png" />
     <Resource Include="images\print.png" />
     <Resource Include="images\save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\vdab.bmp" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
