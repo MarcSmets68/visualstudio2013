@@ -13,12 +13,21 @@
     </Window.Resources>
     <StackPanel>
         <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Margin="10">
-            <TextBox Name="grootteTextBox" Style="{StaticResource baseControlStijl}" Width="30" HorizontalAlignment="Left">
-                <Binding ElementName="grootteSlider" Path="Value">                  
-                </Binding>
-            </TextBox>
-            <Slider x:Name="grootteSlider" Style="{StaticResource baseControlStijl}" Width="200" Minimum="6" Maximum="150" IsSnapToTickEnabled="True" SmallChange="1" Value="12"/>
+            <TextBox Name="grootteTextBox" Style="{StaticResource baseControlStijl}" Width="30" HorizontalAlignment="Left" Text="{Binding ElementName=grootteSlider, Path=Value, UpdateSourceTrigger=PropertyChanged}" ></TextBox>
+            <Slider x:Name="grootteSlider" Style="{StaticResource baseControlStijl}" Width="200" Minimum="0" Maximum="150" IsSnapToTickEnabled="True" SmallChange="1" Value="12"/>
+            <ComboBox Name="lettertypeCombobox" Width="180" Style="{StaticResource baseControlStijl}" DataContext="{x:Static Member=Fonts.SystemFontFamilies}" ItemsSource="{Binding}">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock FontFamily="{Binding}" Text="{Binding}"></TextBlock>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
         </StackPanel>
-        <TextBlock Margin="10" FontSize="{Binding ElementName=grootteSlider, Path=Value}"  Text="Tekst"></TextBlock>
+        <TextBlock Margin="10" FontSize="{Binding ElementName=grootteSlider, Path=Value}"  Text="Tekst" FontFamily="{Binding ElementName=lettertypeCombobox, Path=SelectedValue}"></TextBlock>
+        <StackPanel Name="veranderPanel" Orientation="Horizontal" Margin="10">
+            <TextBox Name="veranderTextBox" Width="100" Height="30" Text="{Binding Path=Naam}" Margin="10"></TextBox>
+            <Button Name="veranderButton" Content="verander" Margin="10" Click="veranderButton_Click" ></Button>
+            <Button Name="toonNaamButton" Margin="10" Content="toon naam" Click="toonNaamButton_Click"></Button>
+        </StackPanel>
     </StackPanel>
 </Window>

@@ -20,9 +20,24 @@ namespace DataBinding
     /// </summary>
     public partial class DataBindingWindow : Window
     {
+        public Persoon pers = new Persoon("Jan");
         public DataBindingWindow()
         {
             InitializeComponent();
+            SortDescription sd = new SortDescription("Source", ListSortDirection.Ascending);
+            lettertypeCombobox.Items.SortDescriptions.Add(sd);
+            lettertypeCombobox.SelectedItem = new FontFamily("Arial");
+            veranderTextBox.DataContext = pers;
+        }
+
+        private void toonNaamButton_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show(pers.Naam);
+        }
+
+        private void veranderButton_Click(object sender, RoutedEventArgs e)
+        {
+            pers.Naam = "piet";
         }
     }
 }
