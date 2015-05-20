@@ -27,7 +27,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Telefoon", "Telefoon\Telefo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParkingBon", "ParkingBon\ParkingBon.csproj", "{C9B20B1D-936D-40EE-8399-C5D21241B247}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BloemSamenstelling", "BloemSamenstelling\BloemSamenstelling.csproj", "{C17DD536-EDEC-4F5E-B4D2-B4986D15D630}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BloemSamenstelling", "BloemSamenstelling\BloemSamenstelling.csproj", "{3EE7965D-7411-4EEF-B3BD-FB3035A05D14}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -83,10 +83,10 @@ Global
 		{C9B20B1D-936D-40EE-8399-C5D21241B247}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C9B20B1D-936D-40EE-8399-C5D21241B247}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C9B20B1D-936D-40EE-8399-C5D21241B247}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C17DD536-EDEC-4F5E-B4D2-B4986D15D630}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C17DD536-EDEC-4F5E-B4D2-B4986D15D630}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C17DD536-EDEC-4F5E-B4D2-B4986D15D630}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C17DD536-EDEC-4F5E-B4D2-B4986D15D630}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3EE7965D-7411-4EEF-B3BD-FB3035A05D14}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3EE7965D-7411-4EEF-B3BD-FB3035A05D14}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3EE7965D-7411-4EEF-B3BD-FB3035A05D14}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3EE7965D-7411-4EEF-B3BD-FB3035A05D14}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

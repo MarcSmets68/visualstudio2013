@@ -16,20 +16,20 @@
         </Canvas>
         <StackPanel Orientation="Vertical" Width="200">
             <Label>Cirkelvulling</Label>
-            <ComboBox Name="cirkelsKleuren" Width="150">
+            <ComboBox Name="cirkelsKleuren" Width="150" DisplayMemberPath="Naam" SelectedValuePath="Naam">
             </ComboBox>
             <Label>Dikte cirkelkader (0.5 - 20)</Label>
             <Slider Name="diktecirkelSlider" Margin="20,0" Minimum="0.5" Maximum="20" SmallChange="0.5" IsSnapToTickEnabled="True"></Slider>
             <Label>Kleur cirkelkader</Label>
-            <ComboBox Name="cirkelKaderKleuren" Width="150">
+            <ComboBox Name="cirkelKaderKleuren" Width="150" DisplayMemberPath="Naam" SelectedValuePath="Naam">
             </ComboBox>
             <Label Margin="0,25,0,0">Rechthoekvulling</Label>
-            <ComboBox Name="rechthoekenKleuren" Width="150">
+            <ComboBox Name="rechthoekenKleuren" Width="150" DisplayMemberPath="Naam" SelectedValuePath="Naam">
             </ComboBox>
             <Label>Dikte rechthoekkader(0.5 - 10)</Label>
             <Slider Name="dikterechthoekSlider" Margin="20,0" Minimum="0.5" Maximum="10" SmallChange="0.5" IsSnapToTickEnabled="True"></Slider>
             <Label>Kleur rechthoekkader</Label>
-            <ComboBox Name="rechthoekKaderKleuren" Width="150">
+            <ComboBox Name="rechthoekKaderKleuren" Width="150" DisplayMemberPath="Naam" SelectedValuePath="Naam">
             </ComboBox>
         </StackPanel>
     </StackPanel>

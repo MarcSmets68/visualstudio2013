@@ -23,6 +23,29 @@ namespace BloemSamenstelling
          public BloemWindow()
         {
             InitializeComponent();
+             foreach (PropertyInfo info in typeof(Colors).GetProperties()) 
+             {
+                BrushConverter bc = new BrushConverter();
+                SolidColorBrush deKleur = (SolidColorBrush)bc.ConvertFromString(info.Name); 
+                Kleur kleurke = new Kleur();
+                kleurke.Borstel = deKleur;
+                kleurke.Naam = info.Name;
+                kleurke.Hex = deKleur.ToString();
+                kleurke.Rood = deKleur.Color.R;
+                kleurke.Groen = deKleur.Color.G;
+                kleurke.Blauw = deKleur.Color.B;
+                cirkelsKleuren.Items.Add(kleurke);
+                cirkelKaderKleuren.Items.Add(kleurke);
+                rechthoekenKleuren.Items.Add(kleurke);
+                rechthoekKaderKleuren.Items.Add(kleurke);
+                 if(kleurke.Naam == "Black")
+                 {
+                     cirkelsKleuren.SelectedItem = kleurke;
+                     cirkelKaderKleuren.SelectedItem = kleurke;
+                     rechthoekenKleuren.SelectedItem = kleurke;
+                     rechthoekKaderKleuren.SelectedItem = kleurke;
+                 }
+             }
         }
     }
 }
