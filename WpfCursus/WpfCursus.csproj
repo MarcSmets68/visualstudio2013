@@ -53,6 +53,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="OfficeProgramma.cs" />
+    <Compile Include="OpleidingenWindow.xaml.cs">
+      <DependentUpon>OpleidingenWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="RegenboogWindow.xaml.cs">
       <DependentUpon>RegenboogWindow.xaml</DependentUpon>
     </Compile>
@@ -105,6 +109,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="KleurenKiezenWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="OpleidingenWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -197,6 +205,17 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\vdab.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="imagesoffice\access.png" />
+    <Resource Include="imagesoffice\excel.png" />
+    <Resource Include="imagesoffice\groove.png" />
+    <Resource Include="imagesoffice\infopath.png" />
+    <Resource Include="imagesoffice\onenote.png" />
+    <Resource Include="imagesoffice\outlook.png" />
+    <Resource Include="imagesoffice\powerpoint.png" />
+    <Resource Include="imagesoffice\publisher.png" />
+    <Resource Include="imagesoffice\word.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

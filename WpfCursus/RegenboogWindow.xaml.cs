@@ -62,6 +62,25 @@ namespace RegenboogDragDrop
             }
         }
 
+        private void ButtonCheck_Click(object sender, RoutedEventArgs e)
+        {
+            foreach (Rectangle rechthoek in DropZone.Children)
+            {
+                string naam = rechthoek.Name.Substring(4);
+                Brush naamKleur = (Brush)new BrushConverter().ConvertFromString(naam);
+                Brush kleur = rechthoek.Fill;
+                if (naamKleur == kleur)
+                {
+                    rechthoek.Stroke = Brushes.Green;
+                }
+                    else
+                    {
+                        rechthoek.Stroke = Brushes.Red;
+                    }
+                
+            }
+        }
+
        
     }
 }

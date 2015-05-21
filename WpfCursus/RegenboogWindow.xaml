@@ -23,14 +23,14 @@
             <Rectangle Fill="Indigo" MouseMove="Rectangle_MouseMove"></Rectangle>
         </StackPanel>
         <StackPanel Name="DropZone" Orientation="Horizontal" HorizontalAlignment="Center">
-            <Rectangle Name="dropRed" Fill="White" DragEnter="Rectangle_DragEnter" DragLeave="Rectangle_DragLeave" Drop="Rectangle_Drop"></Rectangle>
-            <Rectangle Name="dropOrange" Fill="White" DragEnter="Rectangle_DragEnter" DragLeave="Rectangle_DragLeave" Drop="Rectangle_Drop"></Rectangle>
-            <Rectangle Name="dropYellow" Fill="White" DragEnter="Rectangle_DragEnter" DragLeave="Rectangle_DragLeave" Drop="Rectangle_Drop"></Rectangle>
-            <Rectangle Name="dropGreen" Fill="White" DragEnter="Rectangle_DragEnter" DragLeave="Rectangle_DragLeave" Drop="Rectangle_Drop"></Rectangle>
-            <Rectangle Name="dropBlue" Fill="White" DragEnter="Rectangle_DragEnter" DragLeave="Rectangle_DragLeave" Drop="Rectangle_Drop"></Rectangle>
-            <Rectangle Name="dropIndigo" Fill="White" DragEnter="Rectangle_DragEnter" DragLeave="Rectangle_DragLeave" Drop="Rectangle_Drop"></Rectangle>
-            <Rectangle Name="dropViolet" Fill="White" DragEnter="Rectangle_DragEnter" DragLeave="Rectangle_DragLeave" Drop="Rectangle_Drop"></Rectangle>
+            <Rectangle Name="dropRed" Fill="White" DragEnter="Rectangle_DragEnter" DragLeave="Rectangle_DragLeave" Drop="Rectangle_Drop" AllowDrop="True"></Rectangle>
+            <Rectangle Name="dropOrange" Fill="White" DragEnter="Rectangle_DragEnter" DragLeave="Rectangle_DragLeave" Drop="Rectangle_Drop" AllowDrop="True"></Rectangle>
+            <Rectangle Name="dropYellow" Fill="White" DragEnter="Rectangle_DragEnter" DragLeave="Rectangle_DragLeave" Drop="Rectangle_Drop" AllowDrop="True"></Rectangle>
+            <Rectangle Name="dropGreen" Fill="White" DragEnter="Rectangle_DragEnter" DragLeave="Rectangle_DragLeave" Drop="Rectangle_Drop" AllowDrop="True"></Rectangle>
+            <Rectangle Name="dropBlue" Fill="White" DragEnter="Rectangle_DragEnter" DragLeave="Rectangle_DragLeave" Drop="Rectangle_Drop" AllowDrop="True"></Rectangle>
+            <Rectangle Name="dropIndigo" Fill="White" DragEnter="Rectangle_DragEnter" DragLeave="Rectangle_DragLeave" Drop="Rectangle_Drop" AllowDrop="True"></Rectangle>
+            <Rectangle Name="dropViolet" Fill="White" DragEnter="Rectangle_DragEnter" DragLeave="Rectangle_DragLeave" Drop="Rectangle_Drop" AllowDrop="True"></Rectangle>
         </StackPanel>
-        <Button Name="ButtonCheck" Content="Check volgorde" Margin="5,50"></Button>
+        <Button Name="ButtonCheck" Content="Check volgorde" Margin="5,50" Click="ButtonCheck_Click"></Button>
     </StackPanel>
 </Window>
