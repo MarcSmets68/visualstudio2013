@@ -36,6 +36,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Controls.Ribbon" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -59,6 +60,9 @@
     </Compile>
     <Compile Include="RegenboogWindow.xaml.cs">
       <DependentUpon>RegenboogWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WindowMetRibbon.xaml.cs">
+      <DependentUpon>WindowMetRibbon.xaml</DependentUpon>
     </Compile>
     <Page Include="Afdrukvoorbeeld.xaml">
       <SubType>Designer</SubType>
@@ -135,6 +139,10 @@
     <Page Include="Resources\turquoise.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WindowMetRibbon.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>
@@ -216,6 +224,34 @@
     <Resource Include="imagesoffice\powerpoint.png" />
     <Resource Include="imagesoffice\publisher.png" />
     <Resource Include="imagesoffice\word.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\App48.png" />
+    <Resource Include="images\Bestand64.png" />
+    <Resource Include="images\Black48.png" />
+    <Resource Include="images\Blue48.png" />
+    <Resource Include="images\Close64.png" />
+    <Resource Include="images\Green48.png" />
+    <Resource Include="images\Help16.png" />
+    <Resource Include="images\Help64.png" />
+    <Resource Include="images\Kleur64.png" />
+    <Resource Include="images\New16.png" />
+    <Resource Include="images\Open16.png" />
+    <Resource Include="images\Open64.png" />
+    <Resource Include="images\preview64.png" />
+    <Resource Include="images\printer64.png" />
+    <Resource Include="images\Question16.png" />
+    <Resource Include="images\Question64.png" />
+    <Resource Include="images\ReadOnly16.png" />
+    <Resource Include="images\Red48.png" />
+    <Resource Include="images\Redo16.png" />
+    <Resource Include="images\Redo64.png" />
+    <Resource Include="images\Refresh16.png" />
+    <Resource Include="images\Refresh64.png" />
+    <Resource Include="images\Save16.png" />
+    <Resource Include="images\Save64.png" />
+    <Resource Include="images\Undo16.png" />
+    <Resource Include="images\Undo64.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

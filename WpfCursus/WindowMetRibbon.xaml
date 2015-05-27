@@ -1,0 +1,80 @@
+﻿<RibbonWindow x:Class="WindowMetRibbonControl.WindowMetRibbon"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+       Height="350" Width="525" Icon="images\app48.png" Title="Window met Ribbon">
+    <RibbonWindow.Resources>
+        <BooleanToVisibilityConverter x:Key="LogischNaarVisueel"/>
+    </RibbonWindow.Resources>
+
+    <RibbonWindow.CommandBindings>
+        <CommandBinding Command="Help" Executed="HelpExecuted"></CommandBinding>
+        <CommandBinding Command="New" Executed="NewExecuted"></CommandBinding>
+        <CommandBinding Command="Open" Executed="OpenExecuted"></CommandBinding>
+        <CommandBinding Command="Save" Executed="SaveExecuted"></CommandBinding>
+        <CommandBinding Command="Close" Executed="CloseExecuted"></CommandBinding>
+        <CommandBinding Command="Print" Executed="PrintExecuted"></CommandBinding>
+        <CommandBinding Command="PrintPreview" Executed="PreviewExecuted"></CommandBinding>
+    </RibbonWindow.CommandBindings>
+
+    <DockPanel LastChildFill="True">
+        <Ribbon DockPanel.Dock="top" >
+            <Ribbon.ApplicationMenu>
+                <RibbonApplicationMenu SmallImageSource="images\bestand64.png" KeyTip="A">
+                    <RibbonApplicationMenuItem Header="New" Command="New" ImageSource="images\new16.png"></RibbonApplicationMenuItem>
+                    <RibbonApplicationMenuItem Header="Open" Command="Open" ImageSource="images\open16.png"></RibbonApplicationMenuItem>
+                    <RibbonApplicationMenuItem Header="Save" Command="Save" ImageSource="images\save16.png"></RibbonApplicationMenuItem>
+                    <RibbonSeparator></RibbonSeparator>
+                    <RibbonApplicationSplitMenuItem Header="Afdrukmogelijkheden" ImageSource="images\printer64.png">
+                        <RibbonApplicationMenuItem Header="Afdrukken" Command="Print" ImageSource="images\printer64.png"></RibbonApplicationMenuItem>
+                        <RibbonApplicationMenuItem Header="Afdrukvoorbeeld" Command="PrintPreview" ImageSource="images\preview64.png"></RibbonApplicationMenuItem>
+                    </RibbonApplicationSplitMenuItem>
+                    <RibbonApplicationMenu.FooterPaneContent>
+                        <RibbonButton Command="Close" SmallImageSource="images\close64.png" HorizontalAlignment="Right" Label="Afsluiten"></RibbonButton>
+                    </RibbonApplicationMenu.FooterPaneContent>
+                    <RibbonApplicationMenu.AuxiliaryPaneContent>
+                        <RibbonGallery Name="MRUGallery" CanUserFilter="False" ScrollViewer.VerticalScrollBarVisibility="Auto" SelectionChanged="MRUGallery_SelectionChanged">
+                            <RibbonGalleryCategory Name="MRUGalleryCat" Header="Recent Documents"></RibbonGalleryCategory>
+                        </RibbonGallery>
+                    </RibbonApplicationMenu.AuxiliaryPaneContent>
+                </RibbonApplicationMenu>
+            </Ribbon.ApplicationMenu>
+            <RibbonTab Header="Bestand" KeyTip="B">
+                <RibbonGroup Header="Open/Save">
+                    <RibbonMenuItem Header="Open" ImageSource="images\open16.png" Command="Open" KeyTip="O"></RibbonMenuItem>
+                    <RibbonMenuItem Header="Save" ImageSource="images\save16.png" Command="Save" KeyTip="S"></RibbonMenuItem>
+                </RibbonGroup>
+            </RibbonTab>
+            <RibbonTab Header="Edit" KeyTip="E">
+                <RibbonGroup Header="Bewerken">
+                    <RibbonMenuItem Command="Undo" ImageSource="images\undo16.png" Header="Undo"></RibbonMenuItem>
+                    <RibbonMenuItem Command="Redo" ImageSource="images\redo16.png" Header="redo"></RibbonMenuItem>
+                </RibbonGroup>
+                <RibbonGroup Header="Opmaak">
+                    <RibbonCheckBox SmallImageSource="images\bold.png" Label="Vet"></RibbonCheckBox>
+                    <RibbonCheckBox Name="CheckBoxSchuin" SmallImageSource="images\italic.png" Label="Schuin"></RibbonCheckBox>
+                    <RibbonCheckBox Name="CheckBoxAlleenLezen" Label="Alleen lezen"></RibbonCheckBox>
+                </RibbonGroup>
+                <RibbonGroup Header="Kleur">
+                    <RibbonMenuButton Name="MenuKleur" LargeImageSource="images\kleur64.png" Label="LetterKleur">
+                    <RibbonRadioButton SmallImageSource="images\black48.png" Label="Zwart" IsChecked="True" Tag="#FF000000" Click="RibbonRadioButton_Click"></RibbonRadioButton>
+                        <RibbonRadioButton SmallImageSource="images\red48.png" Label="Rood" Tag="#FFFF0000" Click="RibbonRadioButton_Click"></RibbonRadioButton>
+                        <RibbonRadioButton SmallImageSource="images\blue48.png" Label="Blauw" Tag="#FF0000FF" Click="RibbonRadioButton_Click"></RibbonRadioButton>
+                        <RibbonRadioButton SmallImageSource="images\green48.png" Label="Groen" Tag="#FF00FF00" Click="RibbonRadioButton_Click"></RibbonRadioButton>
+                    </RibbonMenuButton>
+                </RibbonGroup>
+            </RibbonTab>
+            <RibbonTab Header="Nieuw" ContextualTabGroupHeader="TabNieuw">
+                <RibbonGroup>
+                    <RibbonMenuItem Command="New" ImageSource="images\new16.png" Header="Leeg Document"></RibbonMenuItem>
+                </RibbonGroup>                  
+            </RibbonTab>
+            <Ribbon.ContextualTabGroups>
+                <RibbonContextualTabGroup Header="TabNieuw" Visibility="{Binding ElementName=TextBoxVoorbeeld, Path=IsReadOnly, Converter={StaticResource LogischNaarVisueel}}" Background="Green"/>              
+            </Ribbon.ContextualTabGroups>
+        </Ribbon>
+        <TextBox  Name="TextBoxVoorbeeld" Text="Dit is voorbeeldtekst" 
+           VerticalAlignment="Stretch" HorizontalAlignment="Stretch" 
+           FontSize="24" TextWrapping="Wrap" MaxWidth="600" MaxHeight="900" IsReadOnly="{Binding ElementName=CheckBoxAlleenLezen, Path=IsChecked}">
+        </TextBox>
+    </DockPanel>
+</RibbonWindow>
