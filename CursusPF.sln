@@ -31,6 +31,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BloemSamenstelling", "Bloem
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SchuifSpelWindow", "SchuifSpelWindow\SchuifSpelWindow.csproj", "{E9C9319C-57B7-4AAE-BED7-021B811F62EE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVVMVoorbeeld", "MVVMVoorbeeld\MVVMVoorbeeld.csproj", "{D374E06C-5FA5-4FDD-840D-4701CCF24E91}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVVMHobby", "MVVMHobby\MVVMHobby.csproj", "{7E2CEDB4-3DA3-4875-B938-FCD84907D5BC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -93,6 +97,14 @@ Global
 		{E9C9319C-57B7-4AAE-BED7-021B811F62EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E9C9319C-57B7-4AAE-BED7-021B811F62EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E9C9319C-57B7-4AAE-BED7-021B811F62EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D374E06C-5FA5-4FDD-840D-4701CCF24E91}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D374E06C-5FA5-4FDD-840D-4701CCF24E91}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D374E06C-5FA5-4FDD-840D-4701CCF24E91}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D374E06C-5FA5-4FDD-840D-4701CCF24E91}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E2CEDB4-3DA3-4875-B938-FCD84907D5BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E2CEDB4-3DA3-4875-B938-FCD84907D5BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E2CEDB4-3DA3-4875-B938-FCD84907D5BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E2CEDB4-3DA3-4875-B938-FCD84907D5BC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

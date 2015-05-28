@@ -29,6 +29,36 @@ namespace WindowMetRibbonControl
         public WindowMetRibbon()
         {
             InitializeComponent();
+            LeesMRU();
+            if (WpfCursus.Properties.Settings.Default.qat != null)
+            {
+                System.Collections.Specialized.StringCollection qatlijst = WpfCursus.Properties.Settings.Default.qat;
+                int lijnnr = 0;
+                while (lijnnr < qatlijst.Count)
+                {
+                    string commando = qatlijst[lijnnr];
+                    string png = qatlijst[lijnnr + 1];
+                    RibbonButton niew = new RibbonButton();
+                    BitmapImage icon = new BitmapImage();
+                    icon.BeginInit();
+                    icon.UriSource = new Uri(png);
+                    icon.EndInit();
+                    niew.SmallImageSource = icon;
+
+                    CommandBindingCollection ccol = this.CommandBindings;
+                    foreach (CommandBinding cb in ccol)
+                    {
+                        RoutedUICommand rcb = (RoutedUICommand)cb.Command;
+                        if (rcb.Text == commando)
+                        {
+                            niew.Command = rcb;
+
+                        }
+                    }
+                    Qat.Items.Add(niew);
+                    lijnnr += 2;
+                }
+            }
         }
 
 
@@ -40,6 +70,7 @@ namespace WindowMetRibbonControl
                 {
                     TextBoxVoorbeeld.Text = bestand.ReadLine();
                 }
+                BijwerkenMRU(bestandsnaam);
             }
             catch (Exception ex)
             {
@@ -74,6 +105,7 @@ namespace WindowMetRibbonControl
                         bestand.WriteLine(TextBoxVoorbeeld.Text);
                     }
                 }
+                BijwerkenMRU(dlg.FileName);
             }
             catch (Exception ex)
             {
@@ -121,7 +153,107 @@ namespace WindowMetRibbonControl
             BrushConverter bc = new BrushConverter();
             SolidColorBrush kleur = (SolidColorBrush)bc.ConvertFromString(keuze.Tag.ToString());
             TextBoxVoorbeeld.Foreground = kleur;
+     
+        }
+
+        private void RibbonWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            System.Collections.Specialized.StringCollection qatlijst = new System.Collections.Specialized.StringCollection();
+            if(WpfCursus.Properties.Settings.Default.qat != null)
+            {
+                WpfCursus.Properties.Settings.Default.qat.Clear();
+            }
+            foreach (object li in Qat.Items)
+            {
+                if (li is RibbonButton)
+                {
+                    RibbonButton knop = (RibbonButton)li;
+                    RoutedUICommand commando = (RoutedUICommand)knop.Command;
+                    qatlijst.Add(commando.Text);
+                    qatlijst.Add(knop.SmallImageSource.ToString());
+                }
+            }
+            if (qatlijst.Count > 0)
+            {
+                WpfCursus.Properties.Settings.Default.qat = qatlijst;
+            }
+            WpfCursus.Properties.Settings.Default.Save();
+        }   
+        private void LeesMRU()
+        {
+            MRUGalleryCat.Items.Clear();
+            if(WpfCursus.Properties.Settings.Default.mru != null)
+            {
+                System.Collections.Specialized.StringCollection mrulijst = WpfCursus.Properties.Settings.Default.mru;
+                for (int lijnnr = 0; lijnnr < mrulijst.Count; lijnnr++)
+                {
+                    MRUGalleryCat.Items.Add(mrulijst[lijnnr]);
+                }
+            }
+        }
+        private void BijwerkenMRU(string mruNaam)
+        {
+            System.Collections.Specialized.StringCollection mrulijst = new System.Collections.Specialized.StringCollection();
+            if(WpfCursus.Properties.Settings.Default.mru != null)
+            {
+                mrulijst = WpfCursus.Properties.Settings.Default.mru;
+                int pos = mrulijst.IndexOf(mruNaam);
+                if (pos >=0)
+                {
+                    mrulijst.RemoveAt(pos);
+                }
+                else
+                {
+                    if(mrulijst.Count >=6)
+                    {
+                        mrulijst.RemoveAt(5);
+                    }
+                }
+            }
+            mrulijst.Insert(0, mruNaam);
+            WpfCursus.Properties.Settings.Default.mru = mrulijst;
+            WpfCursus.Properties.Settings.Default.Save();
+            LeesMRU();
+        }
+       
+    }
+    public class booleantofontweight : IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            if ((Boolean)value)
+            {
+                return "Bold";
+            }
+            else
+            {
+                return "Normal";
+            }
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            return null;
         }
     }
+    public class booleantofontstyle : IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            if ((Boolean)value)
+            {
+                return "Italic";
+            }
+            else
+                return "Normal";
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            return null;
+        }
+    }
+
+
 }
 
