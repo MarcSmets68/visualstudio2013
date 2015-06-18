@@ -12,30 +12,59 @@ using System.Windows;
 
 namespace ParkingBonMVVM.ViewModel
 {
-     public class ParkingBonVM
+     public class ParkingBonVM : ViewModelBase
     {
          private Model.ParkingBon parkingbon;
          public ParkingBonVM(Model.ParkingBon deParkingBon)
          {
              parkingbon = deParkingBon;
+             NieuwBon();
          }
 
-         public DateTime datum
+         public DateTime Datum
          {
              get { return parkingbon.Datum; }
-             set
-             {
-                 parkingbon.Datum = value;
-                 RaisePropertyChanged("Datum");
-             }
+             set { parkingbon.Datum = value; RaisePropertyChanged("Datum");}
+
          }
+
+         public string Aankomst
+         {
+
+             get { return parkingbon.Aankomst; }
+             set { parkingbon.Aankomst = value; RaisePropertyChanged("Aankomst"); }
+         }
+         public string Vertrek
+         {
+
+             get { return parkingbon.Vertrek; }
+             set { parkingbon.Vertrek = value; RaisePropertyChanged("Vertrek"); }
+         }
+
+         public string Bedrag
+         {
+
+             get { return parkingbon.Bedrag; }
+             set { parkingbon.Bedrag = value; RaisePropertyChanged("Bedrag"); }
+         }
+
          public RelayCommand NiewCommand
          {
-             get { return new RelayCommand(NieuwTextBox); }
+             get { return new RelayCommand(NieuwBon); }
+         }
+
+         private void NieuwBon()
+         {  
+             Datum = DateTime.Today;
+             Aankomst = DateTime.Now.ToLongTimeString() ;
+             Vertrek = DateTime.Now.ToLongTimeString();
+             Bedrag = "0 €";
+
          }
          public RelayCommand OpslaanCommand
          {
-             get { return new RelayCommand(OpslaanBestand); }
+             get { 
+                 return new RelayCommand(OpslaanBestand); }
          }
          private void OpslaanBestand()
          {
@@ -43,20 +72,18 @@ namespace ParkingBonMVVM.ViewModel
              {
                
                  SaveFileDialog dlg = new SaveFileDialog();
-                 DateTime tijd = (DateTime)ParkingBonView.DatumBon.SelectedDate;
-                 dlg.FileName = tijd.Day.ToString() + '-' + tijd.Month.ToString() + '-' + tijd.Year.ToString() + "om" + AankomstLabelTijd.Content.ToString().Replace(":", "-");
+                 dlg.FileName = Datum.Day.ToString() + '-' + Datum.Month.ToString() + '-' + Datum.Year.ToString() + "om" + Aankomst.Replace(":", "-");
                  dlg.DefaultExt = ".bon";
                  dlg.Filter = "Parkeerbonnen |*.bon";
                  if (dlg.ShowDialog() == true)
                  {
                      using (StreamWriter bestand = new StreamWriter(dlg.FileName))
                      {
-                         bestand.WriteLine(tijd.Date.ToString());
-                         bestand.WriteLine(ParkingBonView.AankomstTextBlock.);
-                         bestand.WriteLine(ParkingBonView.BedragLabel.Content);
-                         bestand.WriteLine(ParkingBonView.VertrekTextBlock.);
+                         bestand.WriteLine(Datum.ToString());
+                         bestand.WriteLine(Aankomst);
+                         bestand.WriteLine(Bedrag);
+                         bestand.WriteLine(Vertrek);
                      }
-                     StatusView.Content = dlg.FileName;
                  }
              }
              catch (Exception ex)
@@ -79,13 +106,11 @@ namespace ParkingBonMVVM.ViewModel
                  {
                      using (StreamReader input = new StreamReader(dlg.FileName))
                      {
-                            DatumBon.SelectedDate = Convert.ToDateTime(input.ReadLine());
-                         AankomstLabelTijd.Content = input.ReadLine();
-                         TeBetalenLabel.Content = input.ReadLine();
-                         VertrekLabelTijd.Content = input.ReadLine();
+                         Datum = Convert.ToDateTime(input.ReadLine());
+                         Aankomst = input.ReadLine();
+                         Bedrag = input.ReadLine();
+                         Vertrek = input.ReadLine();
                      }
-                     SavePrintActief(true);
-                     StatusView.Content = dlg.FileName;
                  }
              }
              catch (Exception ex)
@@ -95,8 +120,33 @@ namespace ParkingBonMVVM.ViewModel
              }
          }
 
+         public RelayCommand MinderCommand
+         {
+             get { return new RelayCommand(MinderBetalen); }
+         }
+         private void MinderBetalen()
+         {
+             int teBetalen = Convert.ToInt32(Bedrag.Substring(0,Bedrag.Length-2));
+             if (teBetalen > 0)
+                 teBetalen -= 1;
+             Bedrag = teBetalen.ToString() + " €";
+             Vertrek = Convert.ToDateTime(Aankomst).AddHours(0.5 * teBetalen).ToLongTimeString();
+         }
 
+         public RelayCommand MeerCommand
+         {
+             get { return new RelayCommand(MeerBetalen); }
+         }
 
+         private void MeerBetalen()
+         {
+             int teBetalen = Convert.ToInt32(Bedrag.Substring(0, Bedrag.Length - 2));
+             DateTime vertrekuur = Convert.ToDateTime(Aankomst).AddHours(0.5 * teBetalen);
+             if(vertrekuur.Hour < 22)
+                 teBetalen += 1;
+             Bedrag = teBetalen.ToString() + " €";
+             Vertrek = Convert.ToDateTime(Aankomst).AddHours(0.5 * teBetalen).ToLongTimeString();
+         }
         public RelayCommand AfsluitenCommand
         {
             get { return new RelayCommand(AfsluitenApp); }
@@ -112,7 +162,7 @@ namespace ParkingBonMVVM.ViewModel
 
         private void OnWindowClosing(CancelEventArgs obj)
         {
-            if (MessageBox.Show("Afsluiten", "Wilt u het programma sluiten?", MessageBoxButton.YesNo, MessageBoxImage.Question, MessageBoxResult.No) == MessageBoxResult.No)
+            if (MessageBox.Show("Afsluiten?", "Wilt u het programma sluiten?", MessageBoxButton.YesNo, MessageBoxImage.Question, MessageBoxResult.No) == MessageBoxResult.No)
             {
                 obj.Cancel = true;
             }

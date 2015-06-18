@@ -16,11 +16,11 @@ namespace ParkingBonMVVM
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
-            //Model.TekstMetOpmaak mijnTekst = new Model.TekstMetOpmaak();
-            //ViewModel.TekstMetOpmaakVM vm = new ViewModel.TekstMetOpmaakVM(mijnTekst);
-            //View.TextBoxView mijnTekstBoxView = new View.TextBoxView();
-            //mijnTekstBoxView.DataContext = vm;
-            //mijnTekstBoxView.Show();
+            Model.ParkingBon bon = new Model.ParkingBon();
+            ViewModel.ParkingBonVM vm = new ViewModel.ParkingBonVM(bon);
+            View.ParkingBonView mijnView = new View.ParkingBonView();
+            mijnView.DataContext = vm;
+            mijnView.Show();
         }
     }
 }
