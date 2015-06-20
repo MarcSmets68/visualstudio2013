@@ -114,6 +114,10 @@
     <Resource Include="View\images\vuilnisbak.png" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Resources\Stijlen.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="View\WenskaartWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

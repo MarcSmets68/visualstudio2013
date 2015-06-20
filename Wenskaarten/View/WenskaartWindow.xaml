@@ -33,15 +33,14 @@
         <StackPanel Orientation="Horizontal">
             <StackPanel>
                 <Canvas Name="Canvas" Width=" 500" Height="400" HorizontalAlignment="Left"/>
-                <TextBox Name="TextBox" Width="480" HorizontalAlignment="Left" Height="40" Margin="20" Text="{Binding Wens}" FontFamily="{Binding ElementName=ComboboxLetterType, Path=SelectedValue}"/>
+                <TextBox Name="TextBox" HorizontalAlignment="Center" MaxWidth="450"  MaxHeight="50" Margin="10" Text="{Binding Wens}" FontFamily="{Binding ElementName=ComboboxLetterType, Path=SelectedValue}" FontSize="{Binding FontGrootte}" MinHeight="20" MinWidth="50"/>
             </StackPanel>
             <StackPanel  Width="200" Height=" 475">
                 <StackPanel>
                     <TextBlock HorizontalAlignment="Center" Margin="5">Kleur van de bal</TextBlock>
                     <ComboBox Name="ComboboxKleur" Width="150" HorizontalAlignment="Center" Margin="5" DisplayMemberPath="Naam" SelectedValuePath="Naam" >
                     </ComboBox>
-                    <Ellipse Width="40" Height="40" Margin="5" StrokeThickness="5" Stroke="Black" Fill="{Binding ElementName=ComboboxKleur, Path=Text}">
-                    </Ellipse>
+                    <Ellipse >     </Ellipse>
                 </StackPanel>
                 <Image  Source="images\vuilnisbak.png" Margin="0,60,0,0" Width="120"></Image>                
                 <TextBlock HorizontalAlignment="Center" Margin="0,70,0,0"> Lettertype</TextBlock>
@@ -54,10 +53,10 @@
                 </ComboBox>
                 <DockPanel Height="60">
                     <TextBlock VerticalAlignment="Center">Grootte</TextBlock>
-                    <Label Name="FontGrootte" Width="30" Height="30"></Label>
-                    <StackPanel Orientation="Vertical">
-                    <RepeatButton   Name="meer" Width="20" Height="20" Content="+" FontSize="14" FontWeight="ExtraBold" Margin="0,10,0,0"></RepeatButton>
-                    <RepeatButton   Name="minder" Width="20" Height="20" Content="-" FontSize="14" FontWeight="ExtraBold"></RepeatButton>
+                    <Label Name="FontSizeLabel" Width="50" Height="50" Margin=" 20,0,20,0" FontSize="20" Content="{Binding FontGrootte}"></Label>
+                    <StackPanel Orientation="Vertical" HorizontalAlignment="Left">
+                    <RepeatButton   Name="Groter" Width="20" Height="20" Content="+" FontSize="14" FontWeight="ExtraBold" Command="{Binding GroterCommand}"></RepeatButton>
+                    <RepeatButton   Name="Kleiner" Width="20" Height="20" Content="-" FontSize="14" FontWeight="ExtraBold" Command="{Binding KleinerCommand}"></RepeatButton>
                     </StackPanel>
                 </DockPanel>
                         

@@ -18,10 +18,13 @@ namespace Wenskaarten.ViewModel
 
     {
          private Model.WenskaartOpmaak opmaakKaart;
+         private int Grootte = 15;
+             
          public WenskaartVM(Model.WenskaartOpmaak deKaart)
          {
              opmaakKaart = deKaart;
              NieuwKaart();
+             FontGrootte = Grootte.ToString();
             
          }
 
@@ -36,6 +39,11 @@ namespace Wenskaarten.ViewModel
              set { opmaakKaart.Figuur = value; RaisePropertyChanged("Figuur"); }
          }
 
+         public string FontGrootte
+         {
+             get { return opmaakKaart.FontGrootte; }
+             set { opmaakKaart.FontGrootte = value; RaisePropertyChanged("FontGrootte"); }
+         }
          public RelayCommand NieuwCommand
          {
              get { return new RelayCommand(NieuwKaart); }
@@ -120,5 +128,31 @@ namespace Wenskaarten.ViewModel
             MessageBoxResult.No)
                 e.Cancel = true;
         }
+         public RelayCommand GroterCommand
+        {
+            get { return new RelayCommand(FontSizeGroter); }
+        }
+         private void FontSizeGroter()
+         {
+             if (Grootte< 40)
+             {
+                 Grootte += 1;
+                 FontGrootte = Grootte.ToString();
+             }
+
+         }
+         public RelayCommand KleinerCommand
+         {
+             get { return new RelayCommand(FontSizeKleiner); }
+         }
+         private void FontSizeKleiner()
+         {
+             if (Grootte > 10)
+             {
+                 Grootte -= 1;
+                 FontGrootte = Grootte.ToString();
+             }
+
+         }
     }
 }
