@@ -72,7 +72,9 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Model\Kleur.cs" />
     <Compile Include="Model\WenskaartOpmaak.cs" />
+    <Compile Include="ViewModel\Converter.cs" />
     <Compile Include="ViewModel\WenskaartVM.cs" />
     <Compile Include="View\WenskaartWindow.xaml.cs">
       <DependentUpon>WenskaartWindow.xaml</DependentUpon>

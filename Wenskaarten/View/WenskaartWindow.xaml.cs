@@ -1,9 +1,9 @@
 ﻿using GalaSoft.MvvmLight.Command;
-
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -25,6 +25,22 @@ namespace Wenskaarten.View
         public WenskaartWindow()
         {
             InitializeComponent();
+             foreach (PropertyInfo info in typeof(Colors).GetProperties())
+             {
+                 BrushConverter bc = new BrushConverter();
+                 SolidColorBrush deKleur = (SolidColorBrush)bc.ConvertFromString(info.Name);
+                 Model.Kleur kleurke = new Model.Kleur();
+                 kleurke.Borstel = deKleur;
+                 kleurke.Naam = info.Name;
+                 kleurke.Hex = deKleur.ToString();
+                 kleurke.Rood = deKleur.Color.R;
+                 kleurke.Groen = deKleur.Color.G;
+                 kleurke.Blauw = deKleur.Color.B;
+                 ComboboxKleur.Items.Add(kleurke);
+                 SortDescription sd = new SortDescription("Source", ListSortDirection.Ascending);
+                 ComboboxLetterType.Items.SortDescriptions.Add(sd);
+                 
+             }
         }
         
         

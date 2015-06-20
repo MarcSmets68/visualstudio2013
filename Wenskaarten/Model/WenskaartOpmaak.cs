@@ -9,17 +9,7 @@ namespace Wenskaarten.Model
 {
     public class WenskaartOpmaak
     {
-        public string Naam { get; set; }
-        public BitmapImage Kaart { get; set; }
-
-        public WenskaartOpmaak()
-        {
-
-        }
-        public WenskaartOpmaak(string nNaam, BitmapImage nKaart)
-        {
-            Naam = nNaam;
-            Kaart = nKaart;
-        }
+        public string Wens { get; set; }
+        public BitmapImage Figuur { get; set; }
     }
 }
