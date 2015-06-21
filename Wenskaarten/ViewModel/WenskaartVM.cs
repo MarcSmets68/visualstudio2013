@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 
@@ -51,6 +52,7 @@ namespace Wenskaarten.ViewModel
          private void NieuwKaart()
          {
              Wens = string.Empty; 
+             
          }
          public RelayCommand OpslaanCommand
          {
@@ -153,6 +155,17 @@ namespace Wenskaarten.ViewModel
                  FontGrootte = Grootte.ToString();
              }
 
+         }
+         public RelayCommand SelectKerstCommand
+         {
+             get { return new RelayCommand(SelectKerst); }
+         }
+         private void SelectKerst()
+         {
+            ImageBrush imageBrush = new ImageBrush();
+            imageBrush.ImageSource = new BitmapImage(new Uri("kerstkaart.jpg", UriKind.Relative));
+           
+        
          }
     }
 }
