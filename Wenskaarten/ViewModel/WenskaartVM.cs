@@ -45,6 +45,11 @@ namespace Wenskaarten.ViewModel
              get { return opmaakKaart.FontGrootte; }
              set { opmaakKaart.FontGrootte = value; RaisePropertyChanged("FontGrootte"); }
          }
+         public ImageBrush BitmapImageBrush
+         {
+             get { return opmaakKaart.BitmapImageBrush; }
+             set { opmaakKaart.BitmapImageBrush = value; RaisePropertyChanged("BitmapImageBrush"); }
+         }
          public RelayCommand NieuwCommand
          {
              get { return new RelayCommand(NieuwKaart); }
@@ -156,16 +161,21 @@ namespace Wenskaarten.ViewModel
              }
 
          }
-         public RelayCommand SelectKerstCommand
+         public RelayCommand SelectKerstkaartCommand
          {
-             get { return new RelayCommand(SelectKerst); }
+             get { return new RelayCommand(SelectKerstImage); }
          }
-         private void SelectKerst()
+         private void SelectKerstImage()
+         {    
+            BitmapImageBrush.ImageSource = new BitmapImage(new Uri(@"\View\images\kerstkaart.jpg", UriKind.Relative));        
+         }
+         public RelayCommand SelectGeboortekaartCommand
          {
-            ImageBrush imageBrush = new ImageBrush();
-            imageBrush.ImageSource = new BitmapImage(new Uri("kerstkaart.jpg", UriKind.Relative));
-           
-        
+             get { return new RelayCommand(SelectGeboorteImage); }
+         }
+         private void SelectGeboorteImage()
+         {
+             BitmapImageBrush.ImageSource = new BitmapImage(new Uri(@"\View\images\geboortekaart.jpg", UriKind.Relative));
          }
     }
 }

@@ -23,8 +23,8 @@
                 <MenuItem Header="Afsluiten" Command="{Binding AfsluitenCommand}"></MenuItem>
             </MenuItem>
             <MenuItem Header="Kaarten">
-                <MenuItem Header="Kerstkaart" Command="{Binding KerstCommand}"></MenuItem>
-                <MenuItem Header="Geboortekaart" Command="{Binding GeboorteCommand}"></MenuItem>
+                <MenuItem Header="Kerstkaart" Command="{Binding SelectKerstkaartCommand}"></MenuItem>
+                <MenuItem Header="Geboortekaart" Command="{Binding SelectGeboortekaartCommand}"></MenuItem>
             </MenuItem>
         </Menu>
         <StatusBar Name="StatusBar" Height="24" DockPanel.Dock="Bottom">
@@ -32,7 +32,7 @@
         </StatusBar>
         <StackPanel Orientation="Horizontal">
             <StackPanel>
-                <Canvas Name="CanvasKaart" Width=" 500" Height="400" HorizontalAlignment="Left">
+                <Canvas Name="CanvasKaart" Width=" 500" Height="400" HorizontalAlignment="Left" Background="{Binding BitmapImageBrush}">
                     <ItemsControl ItemsSource="{Binding Ballen}">
                         <ItemsControl.ItemsPanel>
                             <ItemsPanelTemplate>

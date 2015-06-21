@@ -45,12 +45,12 @@ namespace Wenskaarten.View
 
         
 
-        private void MenuItem_Geboorte(object sender, RoutedEventArgs e)
-        {
-            ImageBrush imageBrush = new ImageBrush();
-            imageBrush.ImageSource = new BitmapImage(new Uri("geboortekaart.jpg", UriKind.Relative));
-            Canvas.Background = imageBrush;
-        }
+        //private void MenuItem_Geboorte(object sender, RoutedEventArgs e)
+        //{
+        //    ImageBrush imageBrush = new ImageBrush();
+        //    imageBrush.ImageSource = new BitmapImage(new Uri("geboortekaart.jpg", UriKind.Relative));
+        //    Canvas.Background = imageBrush;
+        //}
         
         
     }
