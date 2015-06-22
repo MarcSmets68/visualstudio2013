@@ -46,6 +46,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RegenboogDragDrop", "Regenb
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wenskaarten", "Wenskaarten\Wenskaarten.csproj", "{02BC50C5-27CC-44AC-922A-F816375CA1F4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wenskaarten2", "Wenskaarten2\Wenskaarten2.csproj", "{D09CFADC-B6C9-4C47-9D01-EDE79599167F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		CD_ROM|Any CPU = CD_ROM|Any CPU
@@ -255,6 +257,16 @@ Global
 		{02BC50C5-27CC-44AC-922A-F816375CA1F4}.Release|Any CPU.Build.0 = Release|Any CPU
 		{02BC50C5-27CC-44AC-922A-F816375CA1F4}.SingleImage|Any CPU.ActiveCfg = Release|Any CPU
 		{02BC50C5-27CC-44AC-922A-F816375CA1F4}.SingleImage|Any CPU.Build.0 = Release|Any CPU
+		{D09CFADC-B6C9-4C47-9D01-EDE79599167F}.CD_ROM|Any CPU.ActiveCfg = Release|Any CPU
+		{D09CFADC-B6C9-4C47-9D01-EDE79599167F}.CD_ROM|Any CPU.Build.0 = Release|Any CPU
+		{D09CFADC-B6C9-4C47-9D01-EDE79599167F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D09CFADC-B6C9-4C47-9D01-EDE79599167F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D09CFADC-B6C9-4C47-9D01-EDE79599167F}.DVD-5|Any CPU.ActiveCfg = Debug|Any CPU
+		{D09CFADC-B6C9-4C47-9D01-EDE79599167F}.DVD-5|Any CPU.Build.0 = Debug|Any CPU
+		{D09CFADC-B6C9-4C47-9D01-EDE79599167F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D09CFADC-B6C9-4C47-9D01-EDE79599167F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D09CFADC-B6C9-4C47-9D01-EDE79599167F}.SingleImage|Any CPU.ActiveCfg = Release|Any CPU
+		{D09CFADC-B6C9-4C47-9D01-EDE79599167F}.SingleImage|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

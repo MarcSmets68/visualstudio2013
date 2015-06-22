@@ -1,7 +1,9 @@
 ﻿using GalaSoft.MvvmLight.Command;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -22,8 +24,11 @@ namespace Wenskaarten.View
     /// </summary>
     public partial class WenskaartWindow : Window
     {
+        private Model.WenskaartOpmaak opmaakKaart;
+         private int Grootte = 15;
         public WenskaartWindow()
         {
+             
             InitializeComponent();
              foreach (PropertyInfo info in typeof(Colors).GetProperties())
              {
@@ -38,20 +43,129 @@ namespace Wenskaarten.View
                  kleurke.Blauw = deKleur.Color.B;
                  ComboboxKleur.Items.Add(kleurke);
                  SortDescription sd = new SortDescription("Source", ListSortDirection.Ascending);
-                 ComboboxLetterType.Items.SortDescriptions.Add(sd);
-                 
+                 ComboboxLetterType.Items.SortDescriptions.Add(sd);  
+                
              }
-        }
+             NieuwCommand();
+             FontGrootte = Grootte.ToString();
+        
+        }              
+           
 
-        
+         public string Wens
+         {
+             get { return opmaakKaart.Wens; }
+             set { opmaakKaart.Wens = value;  }
+         }
+         public BitmapImage Figuur
+         {
+             get { return opmaakKaart.Figuur; }
+             set { opmaakKaart.Figuur = value; ; }
+         }
 
-        //private void MenuItem_Geboorte(object sender, RoutedEventArgs e)
-        //{
-        //    ImageBrush imageBrush = new ImageBrush();
-        //    imageBrush.ImageSource = new BitmapImage(new Uri("geboortekaart.jpg", UriKind.Relative));
-        //    Canvas.Background = imageBrush;
-        //}
+         public string FontGrootte
+         {
+             get { return opmaakKaart.FontGrootte; }
+             set { opmaakKaart.FontGrootte = value;  }
+         }
+             
+         private void NieuwCommand()
+         {
+             Wens = string.Empty;
+             Figuur = null;
+             
+         }
+         private void OpslaanCommand()
+         {
+             try
+             {
+                 SaveFileDialog dlg = new SaveFileDialog();
+                 dlg.FileName = "Wenskaart";
+                 dlg.DefaultExt = ".txt";
+                 dlg.Filter = "Wenskaart documents | *.txt";
+
+                 if (dlg.ShowDialog() == true)
+                 {
+                     using (StreamWriter bestand = new StreamWriter(dlg.FileName))
+                     {
+                         bestand.WriteLine();
+                         bestand.WriteLine();
+                         bestand.WriteLine();
+                     }
+                 }
+             }
+             catch (Exception ex)
+             {
+
+                 MessageBox.Show("Opslaan mislukt", ex.Message);
+             }
+         }
+         private void OpenenCommand()
+         {
+             try
+             {
+                 OpenFileDialog dlg = new OpenFileDialog();
+                 dlg.FileName = "";
+                 dlg.DefaultExt = ".box";
+                 dlg.Filter = "Textbox documents | *.box";
+
+                 if (dlg.ShowDialog() == true)
+                 {
+                     using (StreamReader bestand = new StreamReader(dlg.FileName))
+                     {
+                         
+                     }
+                 }
+             }
+             catch (Exception ex)
+             {
+
+                 MessageBox.Show("Openen mislukt", ex.Message);
+             }
+         }
+         
+         private void AfsluitenCommand()
+         {
+             Application.Current.MainWindow.Close();
+         }
+        public void ClosingCommand(CancelEventArgs e)
+        {
+            if (MessageBox.Show("Wilt u het programma sluiten ?","Afsluiten", 
+            MessageBoxButton.YesNo, MessageBoxImage.Question, MessageBoxResult.No) ==
+            MessageBoxResult.No)
+                e.Cancel = true;
+        } 
         
         
+         private void GroterCommand()
+         {
+             if (Grootte< 40)
+             {
+                 Grootte += 1;
+                 FontGrootte = Grootte.ToString();
+             }
+
+         }       
+         private void KleinerCommand()
+         {
+             if (Grootte > 10)
+             {
+                 Grootte -= 1;
+                 FontGrootte = Grootte.ToString();
+             }
+
+         }      
+         private void SelectKerstkaartCommand()
+         {
+             Figuur = new BitmapImage(new Uri("kerstkaart.jpg",UriKind.Relative));
+         }
+            
+         private void SelectGeboortekaartCommand()
+         {
+             Figuur = new BitmapImage(new Uri("geboortekaart.jpg", UriKind.Relative));
+
+         }
+
+      
     }
 }

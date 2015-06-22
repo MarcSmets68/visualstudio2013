@@ -13,15 +13,15 @@ namespace Wenskaarten
     /// </summary>
     public partial class App : Application
     {
-        protected override void OnStartup(StartupEventArgs e)
-        {
-            base.OnStartup(e);
-            Model.WenskaartOpmaak mijnKaart = new Model.WenskaartOpmaak();
-            ViewModel.WenskaartVM vm = new ViewModel.WenskaartVM(mijnKaart);
-            View.WenskaartWindow mijnWenskaartView = new View.WenskaartWindow();
+        //protected override void OnStartup(StartupEventArgs e)
+        //{
+        //    base.OnStartup(e);
+        //    Model.WenskaartOpmaak mijnKaart = new Model.WenskaartOpmaak();
+        //    ViewModel.WenskaartVM vm = new ViewModel.WenskaartVM(mijnKaart);
+        //    View.WenskaartWindow mijnWenskaartView = new View.WenskaartWindow();
             
-            mijnWenskaartView.DataContext = vm;
-            mijnWenskaartView.Show();
-        }
+        //    mijnWenskaartView.DataContext = vm;
+        //    mijnWenskaartView.Show();
+        //}
     }
 }

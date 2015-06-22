@@ -13,6 +13,6 @@ namespace Wenskaarten.Model
         public string Wens { get; set; }
         public BitmapImage Figuur { get; set; }
         public string FontGrootte { get; set; }
-        public ImageBrush BitmapImageBrush { get; set; }
+        
     }
 }

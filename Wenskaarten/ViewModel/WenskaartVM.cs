@@ -10,8 +10,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Shapes;
 
 namespace Wenskaarten.ViewModel
 {
@@ -45,18 +47,15 @@ namespace Wenskaarten.ViewModel
              get { return opmaakKaart.FontGrootte; }
              set { opmaakKaart.FontGrootte = value; RaisePropertyChanged("FontGrootte"); }
          }
-         public ImageBrush BitmapImageBrush
-         {
-             get { return opmaakKaart.BitmapImageBrush; }
-             set { opmaakKaart.BitmapImageBrush = value; RaisePropertyChanged("BitmapImageBrush"); }
-         }
+      
          public RelayCommand NieuwCommand
          {
              get { return new RelayCommand(NieuwKaart); }
          }
          private void NieuwKaart()
          {
-             Wens = string.Empty; 
+             Wens = string.Empty;
+             Figuur = null;
              
          }
          public RelayCommand OpslaanCommand
@@ -166,16 +165,20 @@ namespace Wenskaarten.ViewModel
              get { return new RelayCommand(SelectKerstImage); }
          }
          private void SelectKerstImage()
-         {    
-            BitmapImageBrush.ImageSource = new BitmapImage(new Uri(@"\View\images\kerstkaart.jpg", UriKind.Relative));        
+         {
+             Figuur = new BitmapImage(new Uri("kerstkaart.jpg",UriKind.Relative));
          }
+            
          public RelayCommand SelectGeboortekaartCommand
          {
              get { return new RelayCommand(SelectGeboorteImage); }
          }
          private void SelectGeboorteImage()
          {
-             BitmapImageBrush.ImageSource = new BitmapImage(new Uri(@"\View\images\geboortekaart.jpg", UriKind.Relative));
+             Figuur = new BitmapImage(new Uri("geboortekaart.jpg", UriKind.Relative));
+
          }
+        
+         
     }
 }
