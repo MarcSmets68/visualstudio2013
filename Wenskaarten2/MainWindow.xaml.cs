@@ -61,6 +61,7 @@ namespace Wenskaarten2
             CanvasKaart.Background = null;
             StackPanelRechts.Visibility = Visibility.Hidden;
             TextBox.Visibility = Visibility.Hidden;
+            StatusBarText.Content = "Nieuw";
         }
 
         private void Openen_Click(object sender, RoutedEventArgs e)
@@ -68,15 +69,17 @@ namespace Wenskaarten2
             try
             {
                 OpenFileDialog dlg = new OpenFileDialog();
-                dlg.FileName = "";
-                dlg.DefaultExt = ".box";
-                dlg.Filter = "Textbox documents | *.box";
+                dlg.DefaultExt = ".txt";
+                dlg.Filter = "Wenskaart documents | *.txt";
 
                 if (dlg.ShowDialog() == true)
                 {
                     using (StreamReader bestand = new StreamReader(dlg.FileName))
                     {
-
+                       string firstLine = bestand.ReadLine();
+                       StatusBarText.Content = firstLine.Substring(0, firstLine.IndexOf('#'));
+                       string test = firstLine.Substring(firstLine.IndexOf('#') + 1, firstLine.Length - 1);
+                       //ib.ImageSource = new BitmapImage(new Uri(firstLine.Substring(firstLine.IndexOf('#')+1,firstLine.Length+1) , UriKind.Relative));
                     }
                 }
             }
@@ -100,14 +103,17 @@ namespace Wenskaarten2
                 {
                     using (StreamWriter bestand = new StreamWriter(dlg.FileName))
                     {
+                        bestand.WriteLine(dlg.FileName.ToString() + "#" + ib.ImageSource.ToString());
+                        bestand.WriteLine(CanvasKaart.Children.Count);
                         foreach  (Ellipse item in CanvasKaart.Children)
                         {
-                   
+                           bestand.WriteLine(item.Fill + "#" + Canvas.GetLeft(item) + "#" + Canvas.GetTop(item));
                         }
-                        bestand.WriteLine();
-                        bestand.WriteLine();
-                        bestand.WriteLine();
-                    }
+                        bestand.WriteLine(TextBox.Text);
+                        bestand.WriteLine(TextBox.FontFamily);
+                        bestand.WriteLine(TextBox.FontSize);
+                     }
+                    StatusBarText.Content = dlg.FileName;
                 }
             }
             catch (Exception ex)
@@ -125,18 +131,22 @@ namespace Wenskaarten2
         {
             Application.Current.MainWindow.Close();
         }
-
+        ImageBrush ib = new ImageBrush();
         private void mnuKerst_Click(object sender, RoutedEventArgs e)
         {
-            ImageBrush ib = new ImageBrush();
-            ib.ImageSource = new BitmapImage(new Uri(@"Images\kerstkaart.jpg", UriKind.Relative));
-            CanvasKaart.Background = ib;
-            StackPanelRechts.Visibility = Visibility.Visible;
-            TextBox.Visibility = Visibility.Visible;
+            if (CanvasKaart.Background == null)
+            {
+                ib.ImageSource = new BitmapImage(new Uri(@"Images\kerstkaart.jpg", UriKind.Relative));
+                CanvasKaart.Background = ib;
+                StackPanelRechts.Visibility = Visibility.Visible;
+                TextBox.Visibility = Visibility.Visible;
+            }
+            else
+            {
+            }
         }
         private void mnuGeboorte_Click(object sender, RoutedEventArgs e)
         {
-            ImageBrush ib = new ImageBrush();
             ib.ImageSource = new BitmapImage(new Uri(@"Images\geboortekaart.jpg", UriKind.Relative));
             CanvasKaart.Background = ib;
             StackPanelRechts.Visibility = Visibility.Visible;

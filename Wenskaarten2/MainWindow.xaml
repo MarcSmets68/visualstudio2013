@@ -22,7 +22,7 @@
             </MenuItem>
         </Menu>
         <StatusBar Name="StatusBar" Height="24" DockPanel.Dock="Bottom">
-            <StatusBarItem Name="StatusBarText" Content="Nieuw" HorizontalAlignment="Left"></StatusBarItem>
+            <StatusBarItem Name="StatusBarText" HorizontalAlignment="Left"></StatusBarItem>
         </StatusBar>
         <StackPanel Orientation="Horizontal">
             <StackPanel>
