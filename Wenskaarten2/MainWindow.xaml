@@ -4,16 +4,15 @@
         Title="MainWindow" Height="550" Width="750"
         xmlns:local="clr-namespace:Wenskaarten2" Closing="Window_Closing">
     <Window.Resources>
-        <local:StringToBoolean x:Key="TekstToLogisch"></local:StringToBoolean>
-        <BooleanToVisibilityConverter x:Key="LogischNaarVisueel"></BooleanToVisibilityConverter>
+        <local:ValueToBoolean x:Key="WaardeToLogisch"></local:ValueToBoolean>
     </Window.Resources>
     <DockPanel>
         <Menu Height="24" Name="MenuBalk" DockPanel.Dock="Top">
             <MenuItem Header="Bestand">
                 <MenuItem Name="mnuNieuw" Header="Nieuw" Click="Nieuw_Click" ></MenuItem>
                 <MenuItem Name="mnuOpenen" Header="Openen" Click="Openen_Click" ></MenuItem>
-                <MenuItem Name="mnuOpslaan" Header="Opslaan"  IsEnabled="{Binding ElementName=TextBox, Path=Text, Converter={StaticResource TekstToLogisch }}" Click="Opslaan_Click"></MenuItem>
-                <MenuItem Name="mnuAfdrukvoorbeeld" Header="Afdrukvoorbeeld"  IsEnabled="{Binding ElementName=TextBox, Path=Text, Converter={StaticResource TekstToLogisch }}" Click="Afdrukvoorbeeld_Click" ></MenuItem>
+                <MenuItem Name="mnuOpslaan" Header="Opslaan"  IsEnabled="{Binding ElementName=CanvasKaart, Path=Background, Converter={StaticResource WaardeToLogisch}}" Click="Opslaan_Click"></MenuItem>
+                <MenuItem Name="mnuAfdrukvoorbeeld" Header="Afdrukvoorbeeld"  IsEnabled="{Binding ElementName=CanvasKaart, Path=Background, Converter={StaticResource WaardeToLogisch}}" Click="Afdrukvoorbeeld_Click" ></MenuItem>
                 <MenuItem Name="mnuAfsluiten" Header="Afsluiten" Click="Afsluiten_Click" ></MenuItem>
             </MenuItem>
             <MenuItem Header="Kaarten">
@@ -29,7 +28,7 @@
                 <Canvas Name="CanvasKaart" Width=" 500" Height="400" HorizontalAlignment="Left" Drop="Canvas_Drop" AllowDrop="True">   
                 </Canvas>
                 <TextBox Name="TextBox" HorizontalAlignment="Center" MaxWidth="450"  MaxHeight="50" Margin="10" FontFamily="{Binding ElementName=ComboboxLetterType, Path=SelectedValue}"
-                          MinHeight="20" MinWidth="50"/>
+                          MinHeight="20" MinWidth="50" FontSize="{Binding ElementName=FontSizeLabel, Path=Content}"/>
             </StackPanel>
             <StackPanel  Width="200" Height=" 475" Name="StackPanelRechts" >
                 <StackPanel>

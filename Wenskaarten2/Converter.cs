@@ -7,13 +7,13 @@ using System.Windows.Data;
 
 namespace Wenskaarten2
 {
-    public class StringToBoolean : IValueConverter
+    public class ValueToBoolean : IValueConverter
     {
 
         public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {
 
-            if ((string)value != "")
+            if (value != null)
                 return true;
             return false;
         }

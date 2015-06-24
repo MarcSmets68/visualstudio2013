@@ -24,9 +24,8 @@ namespace Wenskaarten2
     /// </summary>
     public partial class MainWindow : Window
     {
-        public string Wens;
-        public BitmapImage Figuur;
         public int Grootte;
+       
         public MainWindow()
         {
             InitializeComponent();
@@ -62,26 +61,58 @@ namespace Wenskaarten2
             StackPanelRechts.Visibility = Visibility.Hidden;
             TextBox.Visibility = Visibility.Hidden;
             StatusBarText.Content = "Nieuw";
+            Grootte = 15;
+            FontSizeLabel.Content = Grootte.ToString();
+            ComboboxKleur.SelectedItem = null;
+            ComboboxLetterType.SelectedItem = null;
+            CanvasKaart.Children.Clear();
         }
 
         private void Openen_Click(object sender, RoutedEventArgs e)
         {
             try
             {
+                
                 OpenFileDialog dlg = new OpenFileDialog();
                 dlg.DefaultExt = ".txt";
                 dlg.Filter = "Wenskaart documents | *.txt";
 
                 if (dlg.ShowDialog() == true)
                 {
+                    CanvasKaart.Children.Clear();
+
                     using (StreamReader bestand = new StreamReader(dlg.FileName))
-                    {
-                       string firstLine = bestand.ReadLine();
-                       StatusBarText.Content = firstLine.Substring(0, firstLine.IndexOf('#'));
-                       string test = firstLine.Substring(firstLine.IndexOf('#') + 1, firstLine.Length - 1);
-                       //ib.ImageSource = new BitmapImage(new Uri(firstLine.Substring(firstLine.IndexOf('#')+1,firstLine.Length+1) , UriKind.Relative));
+                    {                      
+                       string LineRead = bestand.ReadLine();
+                       string[] split;
+                       split = LineRead.Split('*');
+                       StatusBarText.Content = split[0];
+                       ib.ImageSource = new BitmapImage(new Uri(@"" + split[1] , UriKind.Relative));
+                       CanvasKaart.Background = ib;
+                       int aantalEllipse = int.Parse(bestand.ReadLine());
+                       Ellipse newEllipse;
+                       BrushConverter bc = new BrushConverter();
+                       for (int i = 0; i < aantalEllipse; i++)
+                       { 
+                           newEllipse = new Ellipse();
+                           LineRead = bestand.ReadLine();
+                           split = LineRead.Split('*');
+                           newEllipse.Fill = (SolidColorBrush)bc.ConvertFromString(split[0]);
+                           newEllipse.MouseMove += EllipseColor_MouseMove;
+                           Canvas.SetLeft(newEllipse, double.Parse(split[1]));
+                           Canvas.SetTop(newEllipse, double.Parse(split[2]));
+                           newEllipse.Tag = split[1] + split[2];
+                           CanvasKaart.Children.Add(newEllipse);                            
+                       }
+                       TextBox.Text = bestand.ReadLine();
+                       ComboboxLetterType.SelectedItem = new FontFamily(bestand.ReadLine());
+                       string fontSize = bestand.ReadLine();
+                       FontSizeLabel.Content = fontSize;
+                       Grootte = int.Parse(fontSize);                      
                     }
                 }
+                
+                Visualization();
             }
             catch (Exception ex)
             {
@@ -103,11 +134,11 @@ namespace Wenskaarten2
                 {
                     using (StreamWriter bestand = new StreamWriter(dlg.FileName))
                     {
-                        bestand.WriteLine(dlg.FileName.ToString() + "#" + ib.ImageSource.ToString());
+                        bestand.WriteLine(dlg.FileName.ToString() + "*" + ib.ImageSource.ToString());
                         bestand.WriteLine(CanvasKaart.Children.Count);
                         foreach  (Ellipse item in CanvasKaart.Children)
                         {
-                           bestand.WriteLine(item.Fill + "#" + Canvas.GetLeft(item) + "#" + Canvas.GetTop(item));
+                           bestand.WriteLine(item.Fill + "*" + Canvas.GetLeft(item) + "*" + Canvas.GetTop(item));
                         }
                         bestand.WriteLine(TextBox.Text);
                         bestand.WriteLine(TextBox.FontFamily);
@@ -134,23 +165,26 @@ namespace Wenskaarten2
         ImageBrush ib = new ImageBrush();
         private void mnuKerst_Click(object sender, RoutedEventArgs e)
         {
-            if (CanvasKaart.Background == null)
-            {
-                ib.ImageSource = new BitmapImage(new Uri(@"Images\kerstkaart.jpg", UriKind.Relative));
-                CanvasKaart.Background = ib;
-                StackPanelRechts.Visibility = Visibility.Visible;
-                TextBox.Visibility = Visibility.Visible;
-            }
-            else
-            {
-            }
+            Nieuw();       
+            ib.ImageSource = new BitmapImage(new Uri(@"Images\kerstkaart.jpg", UriKind.Relative));
+            CanvasKaart.Background = ib;
+            Visualization();
         }
         private void mnuGeboorte_Click(object sender, RoutedEventArgs e)
         {
+            Nieuw();
             ib.ImageSource = new BitmapImage(new Uri(@"Images\geboortekaart.jpg", UriKind.Relative));
             CanvasKaart.Background = ib;
-            StackPanelRechts.Visibility = Visibility.Visible;
-            TextBox.Visibility = Visibility.Visible;
+            Visualization();
+        }
+
+        private void Visualization()
+        {
+            if (StackPanelRechts.Visibility == Visibility.Hidden || TextBox.Visibility == Visibility.Hidden)
+            {
+                StackPanelRechts.Visibility = Visibility.Visible;
+                TextBox.Visibility = Visibility.Visible;
+            }
         }
 
         private void Window_Closing(object sender, CancelEventArgs e)
@@ -166,7 +200,6 @@ namespace Wenskaarten2
             if (Grootte < 40)
             {
                 Grootte += 1;
-                TextBox.FontSize = Grootte;
                 FontSizeLabel.Content = Grootte.ToString();
             }
         }
@@ -176,7 +209,6 @@ namespace Wenskaarten2
             if (Grootte > 10)
             {
                 Grootte -= 1;
-                TextBox.FontSize = Grootte;
                 FontSizeLabel.Content = Grootte.ToString();
             }
         }
@@ -198,7 +230,6 @@ namespace Wenskaarten2
                 Brush gesleepteKleur = (Brush)e.Data.GetData("deKleur");
                 Ellipse drop = new Ellipse();
                 drop.Fill = gesleepteKleur;
-                drop.StrokeThickness = 3;
                 drop.MouseMove += EllipseColor_MouseMove; 
                 Point pos = e.GetPosition(CanvasKaart);
                 double posX = pos.X;
