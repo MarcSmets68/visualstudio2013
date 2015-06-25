@@ -25,6 +25,8 @@ namespace Wenskaarten2
     public partial class MainWindow : Window
     {
         public int Grootte;
+        ImageBrush ib = new ImageBrush();
+        private Ellipse sleep = new Ellipse();
        
         public MainWindow()
         {
@@ -44,7 +46,6 @@ namespace Wenskaarten2
                 ComboboxKleur.Items.Add(kleurke);
                 SortDescription sd = new SortDescription("Source", ListSortDirection.Ascending);
                 ComboboxLetterType.Items.SortDescriptions.Add(sd);
-
             }
             Nieuw();
         }
@@ -162,7 +163,7 @@ namespace Wenskaarten2
         {
             Application.Current.MainWindow.Close();
         }
-        ImageBrush ib = new ImageBrush();
+
         private void mnuKerst_Click(object sender, RoutedEventArgs e)
         {
             Nieuw();       
@@ -212,8 +213,7 @@ namespace Wenskaarten2
                 FontSizeLabel.Content = Grootte.ToString();
             }
         }
-
-        private Ellipse sleep = new Ellipse();
+     
         private void EllipseColor_MouseMove(object sender, MouseEventArgs e)
         {
            sleep = (Ellipse)sender;
@@ -241,8 +241,7 @@ namespace Wenskaarten2
                 if(sleep.Tag != null)
                 {
                     CanvasKaart.Children.Remove(sleep);
-                }
-                               
+                }                               
             }
         }
         private void Vuilbak_Drop(object sender, DragEventArgs e)
