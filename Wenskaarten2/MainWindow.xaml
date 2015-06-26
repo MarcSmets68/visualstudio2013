@@ -6,14 +6,21 @@
     <Window.Resources>
         <local:ValueToBoolean x:Key="WaardeToLogisch"></local:ValueToBoolean>
     </Window.Resources>
+    <Window.CommandBindings>
+        <CommandBinding Command="New" Executed="NewExecuted"></CommandBinding>
+        <CommandBinding Command="Open" Executed="OpenExecuted"></CommandBinding>
+        <CommandBinding Command="Save" Executed="SaveExecuted"></CommandBinding>
+        <CommandBinding Command="PrintPreview" Executed="PrintPreviewExecuted"></CommandBinding>
+        <CommandBinding Command="Close" Executed="CloseExecuted"></CommandBinding>
+    </Window.CommandBindings>
     <DockPanel>
         <Menu Height="24" Name="MenuBalk" DockPanel.Dock="Top">
             <MenuItem Header="Bestand">
-                <MenuItem Name="mnuNieuw" Header="Nieuw" Click="Nieuw_Click" ></MenuItem>
-                <MenuItem Name="mnuOpenen" Header="Openen" Click="Openen_Click" ></MenuItem>
-                <MenuItem Name="mnuOpslaan" Header="Opslaan"  IsEnabled="{Binding ElementName=CanvasKaart, Path=Background, Converter={StaticResource WaardeToLogisch}}" Click="Opslaan_Click"></MenuItem>
-                <MenuItem Name="mnuAfdrukvoorbeeld" Header="Afdrukvoorbeeld"  IsEnabled="{Binding ElementName=CanvasKaart, Path=Background, Converter={StaticResource WaardeToLogisch}}" Click="Afdrukvoorbeeld_Click" ></MenuItem>
-                <MenuItem Name="mnuAfsluiten" Header="Afsluiten" Click="Afsluiten_Click" ></MenuItem>
+                <MenuItem Name="mnuNieuw" Header="Nieuw" Command="New" ></MenuItem>
+                <MenuItem Name="mnuOpenen" Header="Openen" Command="Open"></MenuItem>
+                <MenuItem Name="mnuOpslaan" Header="Opslaan" Command="Save" IsEnabled="{Binding ElementName=CanvasKaart, Path=Background, Converter={StaticResource WaardeToLogisch}}" ></MenuItem>
+                <MenuItem Name="mnuAfdrukvoorbeeld" Header="Afdrukvoorbeeld" Command="PrintPreview" IsEnabled="{Binding ElementName=CanvasKaart, Path=Background, Converter={StaticResource WaardeToLogisch}}" ></MenuItem>
+                <MenuItem Name="mnuAfsluiten" Header="Afsluiten" Command="Close"></MenuItem>
             </MenuItem>
             <MenuItem Header="Kaarten">
                 <MenuItem Name="mnuKerst" Header="Kerstkaart" Click="mnuKerst_Click" ></MenuItem>

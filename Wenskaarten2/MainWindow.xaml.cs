@@ -26,7 +26,7 @@ namespace Wenskaarten2
     {
         public int Grootte;
         ImageBrush ib = new ImageBrush();
-        private Ellipse sleep = new Ellipse();
+       
        
         public MainWindow()
         {
@@ -50,7 +50,7 @@ namespace Wenskaarten2
             Nieuw();
         }
 
-        private void Nieuw_Click(object sender, RoutedEventArgs e)
+        private void NewExecuted(object sender, RoutedEventArgs e)
         {
            Nieuw();
         }
@@ -69,7 +69,7 @@ namespace Wenskaarten2
             CanvasKaart.Children.Clear();
         }
 
-        private void Openen_Click(object sender, RoutedEventArgs e)
+        private void OpenExecuted(object sender, RoutedEventArgs e)
         {
             try
             {
@@ -107,13 +107,14 @@ namespace Wenskaarten2
                        }
                        TextBox.Text = bestand.ReadLine();
                        ComboboxLetterType.SelectedItem = new FontFamily(bestand.ReadLine());
+                       ComboboxKleur.SelectedItem = null;
                        string fontSize = bestand.ReadLine();
                        FontSizeLabel.Content = fontSize;
-                       Grootte = int.Parse(fontSize);                      
+                       Grootte = int.Parse(fontSize);   
+                       VisualActive();
                     }
                 }
-                
-                Visualization();
+               
             }
             catch (Exception ex)
             {
@@ -122,7 +123,7 @@ namespace Wenskaarten2
             }
         }
 
-        private void Opslaan_Click(object sender, RoutedEventArgs e)
+        private void SaveExecuted(object sender, RoutedEventArgs e)
         {
             try
             {             
@@ -154,12 +155,15 @@ namespace Wenskaarten2
                 MessageBox.Show("Opslaan mislukt", ex.Message);
             }
         }
-        private void Afdrukvoorbeeld_Click(object sender, RoutedEventArgs e)
+        private void PrintPreviewExecuted(object sender, RoutedEventArgs e)
         {
-
+            Afdrukvoorbeeld preview = new Afdrukvoorbeeld();
+            preview.Owner = this;
+            preview.Afdrukdocument = StelAfdrukSamen();
+            preview.ShowDialog();
         }
 
-        private void Afsluiten_Click(object sender, RoutedEventArgs e)
+        private void CloseExecuted(object sender, RoutedEventArgs e)
         {
             Application.Current.MainWindow.Close();
         }
@@ -169,17 +173,17 @@ namespace Wenskaarten2
             Nieuw();       
             ib.ImageSource = new BitmapImage(new Uri(@"Images\kerstkaart.jpg", UriKind.Relative));
             CanvasKaart.Background = ib;
-            Visualization();
+            VisualActive();
         }
         private void mnuGeboorte_Click(object sender, RoutedEventArgs e)
         {
             Nieuw();
             ib.ImageSource = new BitmapImage(new Uri(@"Images\geboortekaart.jpg", UriKind.Relative));
-            CanvasKaart.Background = ib;
-            Visualization();
+            CanvasKaart.Background = ib;         
+            VisualActive();
         }
 
-        private void Visualization()
+        private void VisualActive()
         {
             if (StackPanelRechts.Visibility == Visibility.Hidden || TextBox.Visibility == Visibility.Hidden)
             {
@@ -213,11 +217,11 @@ namespace Wenskaarten2
                 FontSizeLabel.Content = Grootte.ToString();
             }
         }
-     
+        private Ellipse sleep = new Ellipse();
         private void EllipseColor_MouseMove(object sender, MouseEventArgs e)
         {
            sleep = (Ellipse)sender;
-            if (e.LeftButton == MouseButtonState.Pressed)
+            if (e.LeftButton == MouseButtonState.Pressed && sleep.Fill != null)
             {              
                 DataObject sleepColor = new DataObject("deKleur", sleep.Fill);
                 DragDrop.DoDragDrop(sleep, sleepColor, DragDropEffects.Move);              
@@ -250,6 +254,49 @@ namespace Wenskaarten2
             {     
                 CanvasKaart.Children.Remove(sleep);               
             }
+        }
+        private FixedDocument StelAfdrukSamen()
+        {
+            FixedDocument document = new FixedDocument();
+            document.DocumentPaginator.PageSize = new System.Windows.Size(500, 500);
+            PageContent inhoud = new PageContent();
+            document.Pages.Add(inhoud);
+            FixedPage page = new FixedPage();
+            page.Width = 500;
+            page.Height = 500;
+            inhoud.Child = page;
+
+            StackPanel previewStack1 = new StackPanel();
+       
+            Canvas previewCanvas = new Canvas();
+            previewCanvas.Width = 500;
+            previewCanvas.Height = 400;
+            previewCanvas.Background = CanvasKaart.Background;
+
+            previewStack1.Children.Add(previewCanvas);
+
+            TextBlock previewTextBlock = new TextBlock();
+            previewTextBlock.Text = TextBox.Text;
+            previewTextBlock.FontSize = TextBox.FontSize;
+            previewTextBlock.FontFamily = TextBox.FontFamily;
+            previewTextBlock.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
+            previewTextBlock.Margin = new Thickness(0,25,0,0);
+            previewStack1.Children.Add(previewTextBlock);
+
+            foreach (Ellipse item in CanvasKaart.Children.OfType<Ellipse>())
+            {
+                Ellipse previewEllipse = new Ellipse();
+                double posX = Canvas.GetLeft(item);
+                double posY = Canvas.GetTop(item);
+                Canvas.SetLeft(previewEllipse, posX);
+                Canvas.SetTop(previewEllipse, posY);
+                previewEllipse.Fill = item.Fill;
+                previewCanvas.Children.Add(previewEllipse);
+            }         
+            page.Children.Add(previewStack1);
+       
+            
+            return document;
         }
         
     }

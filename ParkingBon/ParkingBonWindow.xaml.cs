@@ -121,7 +121,7 @@ namespace ParkingBon
                     AankomstLabelTijd.Content = input.ReadLine();
                     TeBetalenLabel.Content = input.ReadLine();
                     VertrekLabelTijd.Content = input.ReadLine();
-                }
+                } 
                 SavePrintActief(true);
                 StatusView.Content = dlg.FileName;
                 }
